@@ -4,9 +4,6 @@ name: default
 steps:
   - name: app-compile
     image: bluerain/elixir:1.9.1-slim
-    environment:
-      SECRET_KEY_BASE:
-        from_secret: secret_key_base
     commands:
       - mix deps.get
       - MIX_ENV=prod mix compile
@@ -20,6 +17,9 @@ steps:
   - name: app-build
     image: bluerain/elixir:1.9.1-slim
     pull: true
+    environment:
+      SECRET_KEY_BASE:
+        from_secret: secret_key_base
     commands:
       - mix phx.digest
       - MIX_ENV=prod mix release
