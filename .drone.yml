@@ -6,7 +6,7 @@ steps:
     image: bluerain/elixir:1.9.1-slim
     commands:
       - export SECRET_KEY_BASE=`mix phx.gen.secret`
-      - mix deps.get --only prod
+      - mix deps.get
       - MIX_ENV=prod mix compile
 
   - name: assets-build
