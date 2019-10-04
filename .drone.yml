@@ -3,7 +3,7 @@ name: default
 
 steps:
   - name: assets-build
-    image: node/stretch
+    image: node:stretch
     commands:
       - npm run deploy --prefix ./assets
 
