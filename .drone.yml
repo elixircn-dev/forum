@@ -22,9 +22,15 @@ steps:
     commands:
       - MIX_ENV=prod mix release
 
-  - name: build-image
+  - name: image-build
     image: docker
     commands:
       - docker build . -t elixirchina/community
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - name: docker_sock
+        path: /var/run/docker.sock<Paste>
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
