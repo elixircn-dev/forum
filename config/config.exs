@@ -9,7 +9,7 @@ use Mix.Config
 
 # Configures the endpoint
 config :community, CommunityWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   secret_key_base: "M0rBbWOs1E096LiE15cmfJ5pkOA3AG7Gv4z+vOpDnzEDpy4F8ja8qq9VysWq0Zn1",
   render_errors: [view: CommunityWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Community.PubSub, adapter: Phoenix.PubSub.PG2],
