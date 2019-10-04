@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  server:
+    image: elixirchina/community
+    stdin_open: true
+    ports:
+      - 8092:4000
+    restart: always
