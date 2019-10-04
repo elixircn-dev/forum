@@ -1,0 +1,30 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: assets-build
+    image: node/stretch
+    commands:
+      - npm run deploy --prefix ./assets
+
+  - name: app-compile
+    image: bluerain/elixir:1.9.1-slim
+    pull: true
+    commands:
+      - export SECRET_KEY_BASE=`mix phx.gen.secret`
+      - mix deps.get --only prod
+      - MIX_ENV=prod mix compile
+      - mix phx.digest
+
+  - name: app-build
+    image: bluerain/elixir:1.9.1-slim
+    pull: true
+    commands:
+      - MIX_ENV=prod mix release
+
+  - name: build-image
+    image: docker
+    commands:
+      - docker build . -t elixirchina/community
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
