@@ -1,4 +1,35 @@
 /* This file is for your main application css. */
+@import "../node_modules/bulma/css/bulma.min.css";
 
-@import "./phoenix.css";
-@import "../../deps/phoenix_live_view/assets/css/live_view.css";
+.section.in-section {
+  padding-top: 0;
+}
+.category .category-icon {
+  font-size: 50px;
+}
+.category .category-link {
+  color: #64645e;
+  font-weight: bold;
+}
+.articles .article {
+  border-bottom: 1px solid #fff;
+}
+.articles .article-face {
+  outline-style: none;
+}
+.articles .article-face img {
+  display: block;
+  height: 45px;
+}
+.articles .article-title {
+  color: #000000;
+  
+}
+.articles .article-info {
+  font-size: 14px;
+  color: #7a7a73;
+}
+.articles .article-info a {
+  text-decoration: underline;
+  color: #50504c;
+}

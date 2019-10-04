@@ -1,8 +1,56 @@
-<section>
-  <%= Phoenix.LiveView.live_render(@conn, CommunityWeb.TimeLive, session: %{id: 0}) %>
-</section>
-
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
+<section class="section">
+  <div class="container">
+    <%# 加群卡片 %>
+    <section class="section in-section">
+      <div class="card">
+        <div class="card-content has-text-centered">
+          <p class="subtitle is-6">❤️ 加入 Elixir 中文交流群组 ❤️</p>
+          <p>
+            <code>
+              QQ-Group: 912763380,
+              Telegram-Group: <a href="t.me/elixir_cn">@elixir_cn</a>
+            </code>
+          </p>
+        </div>
+      </div>
+    </section>
+    <%# 分类卡片 %>
+    <section class="section in-section">
+      <div class="columns">
+        <%= for category <- @categories do %>
+          <div class="column">
+            <div class="card category">
+              <div class="card-content has-text-centered">
+                <span class="category-icon">
+                  <i class="<%= category[:icon] %>" style="color: <%= category[:color] %>;"></i>
+                </span>
+              </div>
+              <footer class="card-footer">
+                <a href="<%= category[:to] %>" class="card-footer-item category-link">
+                  <span><%= category[:text] %></span>
+                </a>
+              </footer>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+    <%# 首页文章列表 %>
+    <section class="section in-section">
+      <div class="card articles">
+        <header class="card-header">
+          <p class="card-header-title">社区精华帖</p>
+        </header>
+        <div class="card-content">
+          <%= for line <- @articles do %>
+            <div class="columns">
+            <%= for article <- line do %>
+              <%= render "article_list_item.html", article: article %>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </div>
 </section>

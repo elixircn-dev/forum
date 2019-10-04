@@ -1,5 +1,5 @@
 defmodule CommunityWeb.TimeLive do
-  use Phoenix.LiveView
+  use Phoenix.LiveView, container: {:span, class: "timer"}
 
   defp time_now do
     Time.utc_now() |> Time.truncate(:second)

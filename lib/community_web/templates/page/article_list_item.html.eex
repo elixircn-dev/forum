@@ -1,0 +1,18 @@
+<div class="column article">
+  <%= if @article do %>
+    <div class="columns is-vcentered">
+      <div class="column is-1 is-paddingless article-face">
+        <img src="/images/face/<%= @article[:face] %>">
+      </div>
+      <div class="column is-10" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+        <a class="article-title"><%= @article[:title] %></a>
+        <div class="article-info">
+          <a href="#"><%= @article[:author] %></a>
+          • 最后由 <a href="#"><%= @article[:reply_author] %></a>
+          回复于 <%= @article[:reply_at] %> 天前
+        </div>
+      </div>
+      <div class="column is-1 has-text-centered"><%= @article[:reply_num] %></div>
+    </div>
+  <% end %>
+</div>
