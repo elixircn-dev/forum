@@ -4,9 +4,11 @@ name: default
 steps:
   - name: app-compile
     image: bluerain/elixir:1.9.1-slim
+    environment:
+      SECRET_KEY_BASE:
+        from_secret: secret_key_base
     commands:
       - mix deps.get
-      - export SECRET_KEY_BASE=`mix phx.gen.secret`
       - MIX_ENV=prod mix compile
 
   - name: assets-build
