@@ -1,7 +1,6 @@
-<section class="section">
-  <div class="container">
+  <div class="container cm-page">
     <%# 加群卡片 %>
-    <section class="section cm-in-section">
+    <section class="section">
       <div class="card">
         <div class="card-content has-text-centered">
           <p class="subtitle is-6">❤️ 加入 Elixir 中文交流群组 ❤️</p>
@@ -15,7 +14,7 @@
       </div>
     </section>
     <%# 分类卡片 %>
-    <section class="section cm-in-section">
+    <section class="section">
       <div class="columns cm-categories">
         <%= for category <- @categories do %>
           <div class="column">
@@ -36,7 +35,7 @@
       </div>
     </section>
     <%# 首页文章列表 %>
-    <section class="section cm-in-section">
+    <section class="section">
       <div class="card cm-articles">
         <header class="card-header">
           <p class="card-header-title"><a>社区精华帖</a></p>
@@ -53,7 +52,7 @@
       </div>
     </section>
     <%# 分类导航 %>
-    <section class="section cm-in-section">
+    <section class="section">
       <div class="card cm-note-group">
         <header class="card-header">
           <p class="card-header-title">节点导航</p>
@@ -77,4 +76,3 @@
       </div>
     </section>
   </div>
-</section>

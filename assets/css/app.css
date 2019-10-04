@@ -1,9 +1,24 @@
 /* This file is for your main application css. */
 @import "../node_modules/bulma/css/bulma.min.css";
 
-.section.cm-in-section {
-  padding-top: 0;
+@media screen and (min-width: 1024px) {
+  .cm-page > .section {
+    padding: 1.5rem 0;
+  }
 }
+
+@media screen and (max-width: 960px) {
+  .cm-page > .section {
+    padding: 1.5rem 0.75rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cm-page > .section {
+    padding: 1.5rem 0.75rem;
+  }
+}
+
 .cm-category .cm-category-icon {
   font-size: 50px;
 }
@@ -27,8 +42,7 @@
 }
 .cm-articles .cm-article-face img {
   display: block;
-  height: 45px;
-  width: 45px;
+  width: 100%;
 }
 .cm-articles .cm-article-title {
   color: #000000;
@@ -49,11 +63,6 @@
   border-radius: 12px;
   width: 30px;
   display: inline-block;
-}
-.cm-note-group > .card-content {
-  padding: 24px 0;
-}
-.cm-note-group .cm-note-groups {
 }
 .cm-note-group .cm-note-groups > .column {
   padding: 4px 10px 4px 0;
