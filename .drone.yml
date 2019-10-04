@@ -4,6 +4,9 @@ name: default
 steps:
   - name: app-compile
     image: bluerain/elixir:1.9.1-slim
+    environment:
+      SECRET_KEY_BASE:
+        from_secret: secret_key_base
     commands:
       - mix deps.get
       - MIX_ENV=prod mix compile
@@ -30,7 +33,7 @@ steps:
       - docker build . -t elixirchina/community
     volumes:
       - name: docker_sock
-        path: /var/run/docker.sock<Paste>
+        path: /var/run/docker.sock
 
 volumes:
   - name: docker_sock
