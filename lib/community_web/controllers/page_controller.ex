@@ -99,6 +99,42 @@ defmodule CommunityWeb.PageController do
     ]
   ]
 
+  @note_groups [
+    [
+      name: "Elixir",
+      notes: [
+        [name: "常见问题"],
+        [name: "版本变化"],
+        [name: "部署"],
+        [name: "测试"],
+        [name: "性能调优"],
+        [name: "重构"],
+        [name: "开源"],
+        [name: "贡献"],
+        [name: "求职"]
+      ]
+    ],
+    [
+      name: "框架/工具",
+      notes: [
+        [name: "Mix"],
+        [name: "Phoenix"],
+        [name: "Ecto"],
+        [name: "Distillery"]
+      ]
+    ],
+    [
+      name: "概念",
+      notes: [
+        [name: "NIF"],
+        [name: "分布式"],
+        [name: "ETS/DETS"],
+        [name: "Mnesia"],
+        [name: "热更"]
+      ]
+    ]
+  ]
+
   def index(conn, _params) do
     articles =
       @articles
@@ -115,6 +151,7 @@ defmodule CommunityWeb.PageController do
     conn
     |> assign(:categories, @categories)
     |> assign(:articles, articles)
+    |> assign(:note_groups, @note_groups)
     |> render("index.html")
   end
 end
