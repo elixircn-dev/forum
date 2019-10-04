@@ -23,4 +23,4 @@ ENV PATH="$APP_HOME/bin:$PATH"
 EXPOSE 4000
 
 
-ENTRYPOINT [ "community", "console" ]
+ENTRYPOINT [ "community", "start" ]
