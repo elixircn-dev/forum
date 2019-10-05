@@ -18,6 +18,8 @@ defmodule CommunityWeb.Router do
     pipe_through :browser
 
     live "/", IndexLive
+    live "/topic", TopicLive
+    live "/article/*path", ArticleLive
   end
 
   # Other scopes may use custom stacks.
