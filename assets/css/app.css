@@ -1,4 +1,5 @@
 /* This file is for your main application css. */
+@import "../../deps/phoenix_live_view/assets/css/live_view.css";
 @import "../node_modules/bulma/css/bulma.min.css";
 
 @media screen and (min-width: 1024px) {
