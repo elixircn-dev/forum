@@ -40,15 +40,9 @@
         <header class="card-header">
           <p class="card-header-title"><a>社区精华帖</a></p>
         </header>
-        <div class="card-content">
-          <%= for line <- @articles do %>
-            <div class="columns">
-            <%= for article <- line do %>
-              <%= render "article_list_item.html", article: article %>
-            <% end %>
-            </div>
-          <% end %>
-        </div>
+        <%= Phoenix.LiveView.live_render(@conn, CommunityWeb.ArticlesLive, session: %{
+          p: 1
+        }) %>
       </div>
     </section>
     <%# 分类导航 %>

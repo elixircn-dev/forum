@@ -1,0 +1,7 @@
+<%= for line <- @articles do %>
+  <div class="columns">
+  <%= for article <- line do %>
+    <%= render "article_list_item.html", article: article %>
+  <% end %>
+  </div>
+<% end %>

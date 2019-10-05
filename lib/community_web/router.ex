@@ -17,7 +17,6 @@ defmodule CommunityWeb.Router do
   scope "/", CommunityWeb do
     pipe_through :browser
 
-    live "/time", TimeLive, session: [:id]
     get "/", PageController, :index
   end
 
