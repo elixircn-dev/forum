@@ -1,0 +1,70 @@
+<%# 欢迎卡片 %>
+<section class="section">
+  <div class="card">
+    <div class="card-content has-text-centered">
+      <p class="subtitle is-6">❤️ 加入 Elixir 中文交流群组 ❤️</p>
+      <p>
+        <code>
+          QQ-Group: 912763380,
+          Telegram-Group: <a href="t.me/elixir_cn">@elixir_cn</a>
+        </code>
+      </p>
+    </div>
+  </div>
+</section>
+<%# 分类卡片 %>
+<section class="section">
+  <div class="columns cm-categories">
+    <%= for category <- @categories do %>
+      <div class="column">
+        <div class="card cm-category">
+          <div class="card-content has-text-centered">
+            <span class="cm-category-icon">
+              <i class="<%= category[:icon] %>" style="color: <%= category[:color] %>;"></i>
+            </span>
+          </div>
+          <footer class="card-footer">
+            <a href="<%= category[:to] %>" class="card-footer-item cm-category-link">
+              <span><%= category[:text] %></span>
+            </a>
+          </footer>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+<%# 文章列表卡片 %>
+<section class="section">
+  <div class="card cm-articles">
+    <header class="card-header">
+      <p class="card-header-title"><a>最近的帖子</a></p>
+    </header>
+    <%= Phoenix.LiveView.live_render @socket,
+        CommunityWeb.ArticlesLive, 
+        session: %{p: 1}, id: "articles" %>
+  </div>
+</section>
+<%# 分类导航卡片 %>
+<section class="section">
+  <div class="card cm-note-group">
+    <header class="card-header">
+      <p class="card-header-title">节点导航</p>
+    </header>
+    <div class="card-content">
+      <%= for group <- @note_groups do %>
+        <div class="columns cm-note-groups">
+          <div class="column is-2 has-text-right cm-note-group-name">
+            <label><%= group[:name] %></label>
+          </div>
+          <div class="column is-10">
+            <%= for note <- group[:notes] do %>
+              <span class="cm-note">
+                <a class="cm-note-name"><%= note[:name] %></a>
+              </span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

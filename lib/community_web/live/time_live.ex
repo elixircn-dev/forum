@@ -9,7 +9,7 @@ defmodule CommunityWeb.TimeLive do
     Phoenix.View.render(CommunityWeb.PageView, "time.html", assigns)
   end
 
-  def mount(%{id: _id}, socket) do
+  def mount(_attr, socket) do
     if connected?(socket), do: :timer.send_interval(1000, self(), :update)
 
     {:ok, assign(socket, time: time_now())}

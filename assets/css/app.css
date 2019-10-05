@@ -6,7 +6,6 @@
     padding: 1.5rem 0;
   }
 }
-
 @media screen and (max-width: 960px) {
   .cm-page > .section {
     padding: 1.5rem 0.75rem;

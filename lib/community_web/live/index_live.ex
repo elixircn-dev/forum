@@ -1,5 +1,5 @@
-defmodule CommunityWeb.PageController do
-  use CommunityWeb, :controller
+defmodule CommunityWeb.IndexLive do
+  use Phoenix.LiveView, container: {:div, class: "container cm-page"}
 
   @categories [
     [icon: "far fa-comments", color: "#EB682B", text: "Elixir 社区", to: "＃"],
@@ -44,10 +44,11 @@ defmodule CommunityWeb.PageController do
     ]
   ]
 
-  def index(conn, _params) do
-    conn
-    |> assign(:categories, @categories)
-    |> assign(:note_groups, @note_groups)
-    |> render("index.html")
+  def render(assigns) do
+    Phoenix.View.render(CommunityWeb.PageView, "index.html", assigns)
+  end
+
+  def mount(_attrs, socket) do
+    {:ok, assign(socket, categories: @categories, note_groups: @note_groups)}
   end
 end

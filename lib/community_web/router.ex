@@ -17,7 +17,7 @@ defmodule CommunityWeb.Router do
   scope "/", CommunityWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", IndexLive
   end
 
   # Other scopes may use custom stacks.
