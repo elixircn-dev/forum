@@ -12,16 +12,16 @@
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <nav
-        class="navbar has-shadow is-fixed-top"
+        class="navbar has-shadow is-fixed-top cm-nav"
         role="navigation"
         aria-label="main navigation"
       >
         <div class="container">
           <div class="navbar-brand">
-              <%= live_link "Elixir China", 
-                  class: "navbar-item", 
-                  to: Routes.live_path(@conn, CommunityWeb.IndexLive)
-              %>
+              <%= live_link to: Routes.live_path(@conn, CommunityWeb.IndexLive),
+                            class: "navbar-item cm-nav-logo" do %>
+                <img src="/images/elixir-china.png">
+              <% end %>
 
             <a
               role="button"
@@ -82,7 +82,7 @@
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-    <footer class="footer">
+    <footer class="footer cm-footer">
       <div class="content has-text-centered">
         <p>
           <strong>Elixir China</strong>

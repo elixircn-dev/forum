@@ -1,0 +1,55 @@
+@import "../base.scss";
+
+// 首页-类别列表
+$category-link-color: $default-link-color;
+$category-link-hover-color: lighten($default-link-color, 10%);
+$category-icon-font-size: 3.5rem;
+
+.cm-home-categories-card {
+  .cm-category {
+    &-icon {
+      font-size: $category-icon-font-size;
+    }
+    &-link {
+      color: $category-link-color;
+      font-weight: bold;
+      &:hover {
+        color: $category-link-hover-color;
+      }
+    }
+  }
+}
+// 首页-文章列表
+.cm-home-articles-card {
+  .card-header-title {
+    a {
+      color: $default-card-header-title-color;
+      text-decoration: underline;
+    }
+  }
+}
+// 首页-节点列表
+.cm-home-notes-card {
+  .card-header-title {
+    color: #a9a7a6;
+  }
+  .cm-note-group {
+    .column {
+      padding: 4px 10px 4px 0;
+    }
+    &-name {
+      color: #a8aaa8;
+    }
+  }
+  .cm-note {
+    display: inline-block;
+    width: 105px;
+    margin-bottom: 10px;
+    &-name {
+      color: #3e3e3e;
+    }
+    &-name:hover {
+      text-decoration: underline;
+    }
+  }
+}

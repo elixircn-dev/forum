@@ -4,17 +4,15 @@
     <div class="card-content has-text-centered">
       <p class="subtitle is-6">❤️ 加入 Elixir 中文交流群组 ❤️</p>
       <p>
-        <code>
-          QQ-Group: 912763380,
-          Telegram-Group: <a href="t.me/elixir_cn">@elixir_cn</a>
-        </code>
+        QQ-Group: <code>912763380</code> ,
+        Telegram-Group: <a href="https://t.me/elixir_cn">@elixir_cn</a>
       </p>
     </div>
   </div>
 </section>
 <%# 分类卡片 %>
 <section class="section">
-  <div class="columns cm-categories">
+  <div class="columns cm-home-categories-card">
     <%= for category <- @categories do %>
       <div class="column">
         <div class="card cm-category">
@@ -35,7 +33,7 @@
 </section>
 <%# 文章列表卡片 %>
 <section class="section">
-  <div class="card cm-articles">
+  <div class="card cm-home-articles-card">
     <header class="card-header">
       <p class="card-header-title"><a>最近的帖子</a></p>
     </header>
@@ -47,13 +45,13 @@
 </section>
 <%# 节点导航卡片 %>
 <section class="section">
-  <div class="card cm-note-group">
+  <div class="card cm-home-notes-card">
     <header class="card-header">
       <p class="card-header-title">节点导航</p>
     </header>
     <div class="card-content">
       <%= for group <- @note_groups do %>
-        <div class="columns cm-note-groups">
+        <div class="columns cm-note-group">
           <div class="column is-2 has-text-right cm-note-group-name">
             <label><%= group[:name] %></label>
           </div>
