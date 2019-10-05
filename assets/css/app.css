@@ -13,12 +13,6 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .cm-page > .section {
-    padding: 1.5rem 0.75rem;
-  }
-}
-
 .cm-category .cm-category-icon {
   font-size: 50px;
 }
