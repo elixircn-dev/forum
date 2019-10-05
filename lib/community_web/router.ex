@@ -18,7 +18,7 @@ defmodule CommunityWeb.Router do
     pipe_through :browser
 
     live "/", IndexLive
-    live "/topic", TopicLive
+    live "/topics", TopicsLive
     live "/article/*path", ArticleLive
   end
 

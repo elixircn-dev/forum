@@ -1,0 +1,33 @@
+<section class="section">
+  <div class="columns">
+      <div class="column is-9">
+        <div class="card">
+          <div class="card-content">
+            <div class="tabs is-small">
+              <ul>
+                <%= for topic <- @topics do %>
+                  <li><a><%= topic[:name] %></a></li>
+                <% end %>
+              </ul>
+            </div>
+            <%= Phoenix.LiveView.live_render @socket,
+                  CommunityWeb.ArticlesLive, 
+                  session: %{p: 1, single: true},
+                  id: "topic_articles" %>
+          </div>
+          <footer class="card-footer has-text-centered">
+          </footer>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">最新公告</p>
+          </header>
+          <div class="card-content">
+            <p>好耶。</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>

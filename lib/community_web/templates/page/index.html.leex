@@ -41,7 +41,8 @@
     </header>
     <%= Phoenix.LiveView.live_render @socket,
         CommunityWeb.ArticlesLive, 
-        session: %{p: 1}, id: "articles" %>
+        container: {:div, class: "card-content"},
+        session: %{p: 1, single: false}, id: "home_articles" %>
   </div>
 </section>
 <%# 节点导航卡片 %>

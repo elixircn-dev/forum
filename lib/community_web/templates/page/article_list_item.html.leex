@@ -1,27 +1,29 @@
-<div class="column is-6 cm-article">
-  <%= if @article do %>
-    <div class="columns is-vcentered is-mobile">
-      <div class="column is-1 is-paddingless cm-article-face">
-        <img src="/images/face/<%= @article[:face] %>">
-      </div>
-      <div class="column is-9 is-four-fifths"
-        style="white-space: nowrap; text-overflow: hidden; overflow: hidden;"
-      >
-        <%= live_link @article[:title], 
-            class: "cm-article-title", 
-            to: Routes.live_path(@socket, CommunityWeb.ArticleLive, %{})
-        %>
-        <div class="cm-article-info">
-          <a href="#"><%= @article[:author] %></a>
-          • 最后由 <a href="#"><%= @article[:reply_author] %></a>
-          回复于 <%= @article[:reply_at] %> 天前
+<% empty? = @article == nil %>
+<%= unless empty? do %>
+  <% col_size = if @single, do: 12, else: 6 %>
+  <div class="column is-<%= col_size %> cm-article">
+      <div class="columns is-vcentered is-mobile">
+        <div class="column is-1 is-paddingless cm-article-face">
+          <img src="/images/face/<%= @article[:face] %>">
+        </div>
+        <div class="column is-9 is-four-fifths"
+          style="white-space: nowrap; text-overflow: hidden; overflow: hidden;"
+        >
+          <%= live_link @article[:title], 
+              class: "cm-article-title", 
+              to: Routes.live_path(@socket, CommunityWeb.ArticleLive, %{})
+          %>
+          <div class="cm-article-info">
+            <a href="#"><%= @article[:author] %></a>
+            • 最后由 <a href="#"><%= @article[:reply_author] %></a>
+            回复于 <%= @article[:reply_at] %> 天前
+          </div>
+        </div>
+        <div class="column is-2 has-text-centered">
+          <span class="cm-article-rm">
+            <%= @article[:reply_num] %>
+          </span>
         </div>
       </div>
-      <div class="column is-2 has-text-centered">
-        <span class="cm-article-rm">
-          <%= @article[:reply_num] %>
-        </span>
-      </div>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

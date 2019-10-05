@@ -40,7 +40,7 @@
             <div class="navbar-start">
               <%= live_link "主题", 
                   class: "navbar-item", 
-                  to: Routes.live_path(@conn, CommunityWeb.TopicLive)
+                  to: Routes.live_path(@conn, CommunityWeb.TopicsLive)
               %>
               <a class="navbar-item">
                 <span>

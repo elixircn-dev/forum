@@ -1,5 +1,5 @@
 defmodule CommunityWeb.ArticlesLive do
-  use Phoenix.LiveView, container: {:div, class: "card-content"}
+  use Phoenix.LiveView
 
   @articles [
     [
@@ -96,20 +96,24 @@ defmodule CommunityWeb.ArticlesLive do
     Phoenix.View.render(CommunityWeb.PageView, "article_list.html", assigns)
   end
 
-  def mount(%{p: _p}, socket) do
+  def mount(%{p: _p, single: single}, socket) do
     articles =
-      @articles
-      |> Enum.with_index()
-      |> Enum.filter(fn {_, i} ->
-        i == 0 || rem(i, 2) == 0
-      end)
-      |> Enum.map(fn {_, i} ->
-        a1 = @articles |> Enum.at(i)
-        a2 = @articles |> Enum.at(i + 1)
-        [a1, a2]
-      end)
+      unless single do
+        @articles
+        |> Enum.with_index()
+        |> Enum.filter(fn {_, i} ->
+          i == 0 || rem(i, 2) == 0
+        end)
+        |> Enum.map(fn {_, i} ->
+          a1 = @articles |> Enum.at(i)
+          a2 = @articles |> Enum.at(i + 1)
+          [a1, a2]
+        end)
+      else
+        @articles |> Enum.map(fn a -> [a] end)
+      end
 
-    {:ok, assign(socket, articles: articles)}
+    {:ok, assign(socket, articles: articles, single: single)}
   end
 
   def handle_info(:update, socket) do

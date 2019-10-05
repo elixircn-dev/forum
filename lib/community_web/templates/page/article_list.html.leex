@@ -1,7 +1,7 @@
 <%= for line <- @articles do %>
   <div class="columns">
   <%= for article <- line do %>
-    <%= render "article_list_item.html", article: article, socket: @socket %>
+    <%= render "article_list_item.html", article: article, single: @single, socket: @socket %>
   <% end %>
   </div>
 <% end %>
