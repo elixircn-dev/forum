@@ -85,11 +85,11 @@
     <footer class="footer cm-footer">
       <div class="container">
         <section class="section has-text-centered">
-              <strong>Elixir China</strong>
-              <span>by</span>
-              <a>Hentioe</a>,
-              <span>Powered by</span>
-              <a href="https://github.com/phoenixframework/phoenix_live_view">Phoenix LiveView</a>
+          <strong>Elixir China</strong>
+          <span>by</span>
+          <a>Hentioe</a>,
+          <span>Powered by</span>
+          <a href="https://github.com/phoenixframework/phoenix_live_view">Phoenix LiveView</a>
         </section>
       </div>
     </footer>

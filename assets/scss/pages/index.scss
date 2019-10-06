@@ -1,9 +1,10 @@
 @import "../base.scss";
 
 // 首页-类别列表
-$category-link-color: $default-link-color;
-$category-link-hover-color: lighten($default-link-color, 10%);
+$category-link-color: darken($default-link-color, 5%);
+$category-link-hover-color: lighten($default-link-color, 5%);
 $category-icon-font-size: 3.5rem;
+$note-group-name-color: darken($default-link-color, 5%);
 
 // 分类列表
 .cm-home-categories-card {
@@ -32,7 +33,7 @@ $category-icon-font-size: 3.5rem;
 // 节点列表
 .cm-home-notes-card {
   .card-header-title {
-    color: #a9a7a6;
+    color: $default-card-header-title-color;
   }
   .cm-note-group {
     .column {
@@ -47,7 +48,7 @@ $category-icon-font-size: 3.5rem;
     width: 105px;
     margin-bottom: 10px;
     &-name {
-      color: #3e3e3e;
+      color: $note-group-name-color;
     }
     &-name:hover {
       text-decoration: underline;

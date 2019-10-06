@@ -3,10 +3,10 @@
   <% col_size = if @single, do: 12, else: 6 %>
   <div class="column is-<%= col_size %> cm-article">
       <div class="columns is-vcentered is-mobile">
-        <div class="column is-1 is-paddingless cm-article-face">
+        <div class="column is-narrow is-paddingless cm-article-face">
           <img src="/images/face/<%= @article[:face] %>">
         </div>
-        <div class="column is-9 is-four-fifths"
+        <div class="column"
           style="white-space: nowrap; text-overflow: hidden; overflow: hidden;"
         >
           <%= live_link @article[:title], 
@@ -19,8 +19,8 @@
             回复于 <%= @article[:reply_at] %> 天前
           </div>
         </div>
-        <div class="column is-2 has-text-centered">
-          <span class="cm-article-rm">
+        <div class="column is-narrow has-text-centered cm-article-rm">
+          <span>
             <%= @article[:reply_num] %>
           </span>
         </div>
