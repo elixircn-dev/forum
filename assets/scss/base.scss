@@ -1,15 +1,20 @@
 // 默认背景色
-$default-background-color: #F4F4F4;
+$default-background-color: #EBEBEB;
 // 默认链接颜色
 $default-link-color: #676767;
 // 默认卡片标题颜色
 $default-card-header-title-color: #9c9c9c;
 // 默认阴影颜色
-$default-shadow-color: #EDEDED;
+$default-shadow-color: darken($default-background-color, 5%);
 // 主题颜色
-$elixir-color: #8f2b9a;
+$elixir-color: #4e2a8e;
 
 // 重写 bulma 变量
 $body-background-color: $default-background-color;
 $footer-background-color: white;
-$card-shadow: 0 2px 3px $default-shadow-color, 0 0 0 1px $default-shadow-color
+$card-shadow: 0 2px 3px $default-shadow-color, 0 0 0 1px $default-shadow-color;
+$card-footer-background-color: lighten($default-background-color, 5%);
+$card-footer-padding: .5rem;
+$card-footer-border-top: 0;
+$card-header-background-color: lighten($default-background-color, 5%);
+$navbar-box-shadow-color: $default-shadow-color;

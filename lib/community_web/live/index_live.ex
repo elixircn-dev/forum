@@ -2,7 +2,7 @@ defmodule CommunityWeb.IndexLive do
   use Phoenix.LiveView, container: {:div, class: "container cm-page"}
 
   @categories [
-    [icon: "far fa-comments", color: "#8f2b9a", text: "Elixir 社区", to: "＃"],
+    [icon: "far fa-comments", color: "#4e2a8e", text: "Elixir 社区", to: "＃"],
     [icon: "fas fa-book", color: "#8AD654", text: "技术文档", to: "＃"],
     [icon: "fas fa-users", color: "#289EBF", text: "求职招聘", to: "＃"],
     [icon: "fas fa-star", color: "#fee83c", text: "精华文章", to: "＃"]

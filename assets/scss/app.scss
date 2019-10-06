@@ -6,12 +6,42 @@
 @import "./pages/index.scss";
 @import "./pages/article.scss";
 
-a.navbar-item {
-  color: darken($default-link-color, 20%);
+$nav-menu-item-border-width: 3px;
+$nav-menu-item-transition-duration: 0.2s;
+$navbar-background-active-color: darken($navbar-background-color, 10%);
+
+.navbar-menu {
+  a.navbar-item {
+    color: darken($default-link-color, 10%);
+    border-top: $nav-menu-item-border-width solid rgba(0, 0, 0, 0);
+    border-bottom: $nav-menu-item-border-width solid rgba(0, 0, 0, 0);
+    transition: border-bottom $nav-menu-item-transition-duration,
+      color $nav-menu-item-transition-duration;
+    &:hover,
+    &.is-active {
+      color: $elixir-color;
+      border-top: $nav-menu-item-border-width solid
+        $navbar-item-hover-background-color;
+      border-bottom: $nav-menu-item-border-width solid $elixir-color;
+    }
+    &:active {
+      background-color: $navbar-background-active-color;
+      border-top: $nav-menu-item-border-width solid
+        $navbar-background-active-color;
+      border-bottom: $nav-menu-item-border-width solid
+        darken($default-background-color, 25%);
+    }
+  }
 }
 
 .card {
   border-radius: $radius-large;
+  .card-footer {
+    border-radius: 0 0 $radius-large $radius-large;
+  }
+  .card-header {
+    border-radius: $radius-large $radius-large 0 0;
+  }
 }
 
 .cm-page > .section {
