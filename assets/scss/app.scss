@@ -1,8 +1,14 @@
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
-@import "../node_modules/bulma/css/bulma.min.css";
 @import "./base.scss";
+// 因为定制变量，bulma 需要在 base.scss 之后导入
+@import "../node_modules/bulma/bulma.sass";
 @import "./components/article.scss";
 @import "./pages/index.scss";
+@import "./pages/article.scss";
+
+.card {
+  border-radius: $radius-large;
+}
 
 .cm-page > .section {
   padding: 1.5rem 0.75rem;

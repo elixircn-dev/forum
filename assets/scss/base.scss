@@ -1,5 +1,13 @@
+// 默认背景色
+$default-background-color: #F4F4F4;
 // 默认链接颜色
 $default-link-color: #676767;
 // 默认卡片标题颜色
 $default-card-header-title-color: #9c9c9c;
+// 默认阴影颜色
+$default-shadow-color: #EDEDED;
 
+// 重写 bulma 变量
+$body-background-color: $default-background-color;
+$footer-background-color: white;
+$card-shadow: 0 2px 3px $default-shadow-color, 0 0 0 1px $default-shadow-color

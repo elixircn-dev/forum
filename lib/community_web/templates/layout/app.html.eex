@@ -83,12 +83,14 @@
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <footer class="footer cm-footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Elixir China</strong>
-          概念设计，Powered by
-          <a href="https://github.com/phoenixframework/phoenix_live_view">Phoenix LiveView</a>
-        </p>
+      <div class="container">
+        <section class="section has-text-centered">
+              <strong>Elixir China</strong>
+              <span>by</span>
+              <a>Hentioe</a>,
+              <span>Powered by</span>
+              <a href="https://github.com/phoenixframework/phoenix_live_view">Phoenix LiveView</a>
+        </section>
       </div>
     </footer>
   </body>
