@@ -4,14 +4,34 @@
 @import "./components/article.scss";
 @import "./pages/index.scss";
 
+.cm-page > .section {
+  padding: 1.5rem 0.75rem;
+  & > .columns {
+    margin-left: 0;
+    margin-right: 0;
+    & > .column {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
 // 改进不同设备样式
 @media screen and (min-width: 1024px) {
   .cm-page > .section {
     padding: 1.5rem 0;
+    & > .columns {
+      margin-left: -0.75rem;
+      margin-right: -0.75rem;
+      & > .column {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+    }
   }
 }
 @media screen and (max-width: 960px) {
   .cm-page > .section {
-    padding: 1.5rem 0.75rem;
+    padding: 1.5rem 0;
   }
 }
