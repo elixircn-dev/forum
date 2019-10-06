@@ -1,1 +1,7 @@
 @import "../base.scss";
+
+.cm-article2 {
+  &-title {
+    word-break: break-word;
+  }
+}

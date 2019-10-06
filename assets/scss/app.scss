@@ -6,6 +6,10 @@
 @import "./pages/index.scss";
 @import "./pages/article.scss";
 
+a.navbar-item {
+  color: darken($default-link-color, 20%);
+}
+
 .card {
   border-radius: $radius-large;
 }

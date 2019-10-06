@@ -5,7 +5,7 @@ defmodule Community.MixProject do
     [
       app: :community,
       version: "0.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.9.0",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -40,7 +40,8 @@ defmodule Community.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_live_view, "~> 0.3.0"},
-      {:floki, ">= 0.0.0", only: :test}
+      {:floki, ">= 0.0.0", only: :test},
+      {:earmark, "~> 1.4"}
     ]
   end
 end

@@ -1,1 +1,38 @@
-文章页面。
+<section class="section">
+  <div class="columns is-desktop cm-article2">
+    <div class="column is-9-desktop cm-article2-body">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title is-size-4 has-text-weight-normal cm-article2-title"><%= @article.title %></p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <%= raw @article.content %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-3-desktop cm-article2-toolbar">
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">关于本文</p>
+        </header>
+        <div class="card-content has-text-centered">
+          <div>
+            <span style="font-size: 2.5rem;">
+              <i class="fas fa-heart"></i>
+            </span>
+          </div>
+          <div>
+            <span>99 个赞</span>
+          </div>
+          <hr />
+          <div>
+            <button class="button is-success">关注作者</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
