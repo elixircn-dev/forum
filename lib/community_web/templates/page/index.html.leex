@@ -1,17 +1,5 @@
-<%# 欢迎卡片 %>
-<section class="section">
-  <div class="card">
-    <div class="card-content has-text-centered">
-      <p class="subtitle is-6">❤️ 加入 Elixir 中文交流群组 ❤️</p>
-      <p>
-        QQ-Group: <code>912763380</code> ,
-        Telegram-Group: <a href="https://t.me/elixir_cn">@elixir_cn</a>
-      </p>
-    </div>
-  </div>
-</section>
 <%# 分类卡片 %>
-<section class="section">
+<section class="section is-hidden-mobile">
   <div class="columns cm-home-categories-card">
     <%= for category <- @categories do %>
       <div class="column">

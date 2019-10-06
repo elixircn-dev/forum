@@ -5,6 +5,7 @@ $category-link-color: $default-link-color;
 $category-link-hover-color: lighten($default-link-color, 10%);
 $category-icon-font-size: 3.5rem;
 
+// 分类列表
 .cm-home-categories-card {
   .cm-category {
     &-icon {
@@ -19,7 +20,7 @@ $category-icon-font-size: 3.5rem;
     }
   }
 }
-// 首页-文章列表
+// 文章列表
 .cm-home-articles-card {
   .card-header-title {
     a {
@@ -28,7 +29,7 @@ $category-icon-font-size: 3.5rem;
     }
   }
 }
-// 首页-节点列表
+// 节点列表
 .cm-home-notes-card {
   .card-header-title {
     color: #a9a7a6;
