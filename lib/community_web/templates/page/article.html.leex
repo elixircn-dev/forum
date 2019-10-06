@@ -3,8 +3,30 @@
     <div class="column is-9-desktop cm-article2-body">
       <div class="card">
         <header class="card-header">
-          <p class="card-header-title is-size-4 has-text-weight-normal cm-article2-title"><%= @article.title %></p>
+          <p class="card-header-title is-size-4 has-text-weight-normal cm-article2-title">
+            <%= @article.title %>
+          </p>
         </header>
+        <div class="columns is-mobile is-marginless cm-article2-info">
+          <div class="column is-paddingless is-narrow">
+              <a>huacnlee</a>
+              ·
+              <span>12</span>
+              天前
+            </div>
+          <div class="column is-paddingless is-narrow is-hidden-mobile">
+            <span>&nbsp;· 最后由</span>
+            <a>zzz6519003</a>
+            回复于
+            <span>2</span>
+            <span>天前</span>
+          </div>
+          <div class="column is-paddingless is-narrow">
+            <span>&nbsp;·</span>
+            <span>1517</span>
+            次阅读
+          </div>
+        </div>
         <div class="card-content">
           <div class="content">
             <%= raw @article.content %>

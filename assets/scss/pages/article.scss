@@ -4,4 +4,13 @@
   &-title {
     word-break: break-word;
   }
+  &-info {
+    padding: .75rem;
+    color: lighten($default-link-color, 30%);
+    font-size: .8rem;
+    border-bottom: 1px solid $default-shadow-color;
+    a {
+      color: darken($default-link-color, 30%);
+    }
+  }
 }
