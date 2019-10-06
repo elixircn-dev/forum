@@ -23,6 +23,7 @@ import "classlist-polyfill"
 import "phoenix_html"
 import {Socket} from "phoenix"
 import LiveSocket from "phoenix_live_view"
+import "./bulma_event"
 
 // Import local files
 //
