@@ -12,34 +12,34 @@ defmodule CommunityWeb.IndexLive do
     [
       name: "Elixir",
       notes: [
-        [name: "常见问题"],
-        [name: "版本变化"],
-        [name: "部署"],
-        [name: "测试"],
-        [name: "性能调优"],
-        [name: "重构"],
-        [name: "开源"],
-        [name: "贡献"],
-        [name: "求职"]
+        [id: 1, name: "常见问题"],
+        [id: 2, name: "版本变化"],
+        [id: 3, name: "部署"],
+        [id: 4, name: "测试"],
+        [id: 5, name: "性能调优"],
+        [id: 6, name: "重构"],
+        [id: 7, name: "开源"],
+        [id: 8, name: "贡献"],
+        [id: 9, name: "求职"]
       ]
     ],
     [
       name: "框架/工具",
       notes: [
-        [name: "Mix"],
-        [name: "Phoenix"],
-        [name: "Ecto"],
-        [name: "Distillery"]
+        [id: 10, name: "Mix"],
+        [id: 11, name: "Phoenix"],
+        [id: 12, name: "Ecto"],
+        [id: 13, name: "Distillery"]
       ]
     ],
     [
       name: "概念",
       notes: [
-        [name: "NIF"],
-        [name: "分布式"],
-        [name: "ETS/DETS"],
-        [name: "Mnesia"],
-        [name: "热更"]
+        [id: 14, name: "NIF"],
+        [id: 15, name: "分布式"],
+        [id: 16, name: "ETS/DETS"],
+        [id: 17, name: "Mnesia"],
+        [id: 18, name: "热更"]
       ]
     ]
   ]

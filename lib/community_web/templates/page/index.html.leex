@@ -24,7 +24,9 @@
   <section class="section">
     <div class="card cm-home-articles-card">
       <header class="card-header">
-        <p class="card-header-title"><a>最近的帖子</a></p>
+        <p class="card-header-title">
+          <%= live_link "最近的帖子", to: Routes.live_path(@socket, CommunityWeb.TopicsLive) %>
+        </p>
       </header>
       <%= Phoenix.LiveView.live_render @socket,
           CommunityWeb.ArticlesLive, 

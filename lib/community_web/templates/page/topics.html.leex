@@ -4,10 +4,39 @@
         <div class="column is-9-desktop">
           <div class="card">
             <div class="card-content">
-              <div class="tabs is-small">
+              <div class="tabs is-small" style="overflow-x: visible; overflow-y: visible">
                 <ul>
+                  <li>
+                    <div class="dropdown is-hoverable cm-node-selector">
+                      <div class="dropdown-trigger">
+                        <button class="button is-size-7" aria-haspopup="true" aria-controls="dropdown-menu">
+                          <span><%= @view_module.activated_name(@nodes, @node_id) %></span>
+                          <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </button>
+                      </div>
+                      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                          <%= for node <- @nodes do %>
+                            <% is_active? = @node_id == node.id %>
+                            <%= live_link node.name, 
+                                to: Routes.live_path(@socket, CommunityWeb.TopicsLive, %{node_id: node.id, category_id: @category_id}),
+                                class: if is_active?, do: "dropdown-item is-active", else: "dropdown-item" %>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                   <%= for topic <- @topics do %>
-                    <li><a><%= topic[:name] %></a></li>
+                    <%= if topic[:id] == @category_id do %>
+                      <li class="is-active">
+                    <% else %>
+                      <li>
+                    <% end %>
+                      <%= live_link topic[:name], 
+                            to: Routes.live_path(@socket, CommunityWeb.TopicsLive, %{category_id: topic[:id], node_id: @node_id}) %>
+                    </li>
                   <% end %>
                 </ul>
               </div>
@@ -45,3 +74,10 @@
     </div>
   </section>
 </div>
+<script type="text/javascript">
+var dropdown = document.querySelector('.dropdown');
+dropdown.addEventListener('hover', function(event) {
+  event.stopPropagation();
+  dropdown.classList.toggle('is-active');
+});
+</script>
