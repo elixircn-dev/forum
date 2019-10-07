@@ -1,5 +1,5 @@
 defmodule CommunityWeb.IndexLive do
-  use Phoenix.LiveView, container: {:div, class: "container cm-page"}
+  use Phoenix.LiveView, container: {:div, class: "cm-page"}
 
   @categories [
     [icon: "far fa-comments", color: "#4e2a8e", text: "Elixir 社区", to: "＃"],

@@ -1,5 +1,5 @@
 defmodule CommunityWeb.TopicsLive do
-  use Phoenix.LiveView, container: {:div, class: "container cm-page"}
+  use Phoenix.LiveView, container: {:div, class: "cm-page"}
 
   @topics [
     [name: "全部", to: "news"],

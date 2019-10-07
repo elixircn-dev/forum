@@ -1,4 +1,4 @@
-@import "../../deps/phoenix_live_view/assets/css/live_view.css";
+@import "../css/live_view.css";
 @import "./base.scss";
 // 因为定制变量，bulma 需要在 base.scss 之后导入
 @import "../node_modules/bulma/bulma.sass";
@@ -44,7 +44,7 @@ $navbar-background-active-color: darken($navbar-background-color, 10%);
   }
 }
 
-.cm-page > .section {
+.cm-page > .container > .section {
   padding: 1.5rem 0.75rem;
   & > .columns {
     margin-left: 0;
@@ -58,7 +58,7 @@ $navbar-background-active-color: darken($navbar-background-color, 10%);
 
 // 改进不同设备样式
 @media screen and (min-width: 1024px) {
-  .cm-page > .section {
+  .cm-page > .container > .section {
     padding: 1.5rem 0;
     & > .columns {
       margin-left: -0.75rem;
@@ -71,7 +71,7 @@ $navbar-background-active-color: darken($navbar-background-color, 10%);
   }
 }
 @media screen and (max-width: 960px) {
-  .cm-page > .section {
+  .cm-page > .container > .section {
     padding: 1.5rem 0;
   }
 }

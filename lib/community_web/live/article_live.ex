@@ -1,5 +1,5 @@
 defmodule CommunityWeb.ArticleLive do
-  use Phoenix.LiveView, container: {:div, class: "container cm-page"}
+  use Phoenix.LiveView, container: {:div, class: "cm-page"}
 
   @content :community
            |> Application.app_dir("priv/data/article.md")
