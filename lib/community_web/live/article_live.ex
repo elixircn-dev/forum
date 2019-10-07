@@ -1,12 +1,14 @@
 defmodule CommunityWeb.ArticleLive do
-  use Phoenix.LiveView, container: {:div, class: "cm-page"}
+  alias CommunityWeb.{LiveView, PageView}
+
+  use LiveView, container: {:div, class: "cm-page"}
 
   @content :community
            |> Application.app_dir("priv/data/article.md")
            |> File.read!()
 
   def render(assigns) do
-    Phoenix.View.render(CommunityWeb.PageView, "article.html", assigns)
+    Phoenix.View.render(PageView, "article.html", assigns)
   end
 
   def mount(_attrs, socket) do

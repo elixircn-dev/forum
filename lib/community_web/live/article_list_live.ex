@@ -1,5 +1,7 @@
 defmodule CommunityWeb.ArticlesLive do
-  use Phoenix.LiveView
+  alias CommunityWeb.{LiveView, PageView}
+
+  use LiveView
 
   @articles [
     [
@@ -93,7 +95,7 @@ defmodule CommunityWeb.ArticlesLive do
   ]
 
   def render(assigns) do
-    Phoenix.View.render(CommunityWeb.PageView, "article_list.html", assigns)
+    Phoenix.View.render(PageView, "article_list.html", assigns)
   end
 
   def mount(%{p: _p, single: single}, socket) do

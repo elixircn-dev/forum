@@ -1,7 +1,7 @@
 defmodule CommunityWeb.TopicsLive do
-  use Phoenix.LiveView, container: {:div, class: "cm-page"}
+  alias CommunityWeb.{LiveView, PageView, IndexLive}
 
-  alias CommunityWeb.IndexLive
+  use LiveView, container: {:div, class: "cm-page"}
 
   @topics [
     [id: 0, name: "全部", to: "news"],
@@ -11,7 +11,7 @@ defmodule CommunityWeb.TopicsLive do
   ]
 
   def render(assigns) do
-    Phoenix.View.render(CommunityWeb.PageView, "topics.html", assigns)
+    Phoenix.View.render(PageView, "topics.html", assigns)
   end
 
   def mount(%{category_id: category_id, node_id: node_id}, socket) do
@@ -32,22 +32,8 @@ defmodule CommunityWeb.TopicsLive do
   end
 
   def handle_params(attrs, _uri, socket) do
-    category_id = attrs |> Map.get("category_id", "0")
-    node_id = attrs |> Map.get("node_id", "0")
-
-    category_id =
-      try do
-        category_id |> String.to_integer()
-      rescue
-        _ -> 0
-      end
-
-    node_id =
-      try do
-        node_id |> String.to_integer()
-      rescue
-        _ -> 0
-      end
+    category_id = attrs |> Map.get("category_id", "0") |> conv_i_compatible
+    node_id = attrs |> Map.get("node_id", "0") |> conv_i_compatible
 
     {:noreply, socket |> assign(category_id: category_id, node_id: node_id)}
   end

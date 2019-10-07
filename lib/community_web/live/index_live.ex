@@ -1,5 +1,7 @@
 defmodule CommunityWeb.IndexLive do
-  use Phoenix.LiveView, container: {:div, class: "cm-page"}
+  alias CommunityWeb.{LiveView, PageView}
+
+  use LiveView, container: {:div, class: "cm-page"}
 
   @categories [
     %{icon: "far fa-comments", color: "#4e2a8e", text: "Elixir 社区", to: "＃"},
@@ -54,7 +56,7 @@ defmodule CommunityWeb.IndexLive do
   ]
 
   def render(assigns) do
-    Phoenix.View.render(CommunityWeb.PageView, "index.html", assigns)
+    Phoenix.View.render(PageView, "index.html", assigns)
   end
 
   def mount(_attrs, socket) do
