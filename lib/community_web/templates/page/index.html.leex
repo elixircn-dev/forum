@@ -7,12 +7,12 @@
           <div class="card cm-category">
             <div class="card-content has-text-centered">
               <span class="cm-category-icon">
-                <i class="<%= category[:icon] %>" style="color: <%= category[:color] %>;"></i>
+                <i class="<%= category.icon %>" style="color: <%= category.color %>;"></i>
               </span>
             </div>
             <footer class="card-footer">
-              <a href="<%= category[:to] %>" class="card-footer-item cm-category-link">
-                <span><%= category[:text] %></span>
+              <a href="<%= category.to %>" class="card-footer-item cm-category-link">
+                <span><%= category.text %></span>
               </a>
             </footer>
           </div>
@@ -36,20 +36,22 @@
   </section>
   <%# 节点导航卡片 %>
   <section class="section">
-    <div class="card cm-home-notes-card">
+    <div class="card cm-home-nodes-card">
       <header class="card-header">
         <p class="card-header-title">节点导航</p>
       </header>
       <div class="card-content">
-        <%= for group <- @note_groups do %>
-          <div class="columns cm-note-group">
-            <div class="column is-2 has-text-right cm-note-group-name">
-              <label><%= group[:name] %></label>
+        <%= for group <- @node_groups do %>
+          <div class="columns cm-node-group">
+            <div class="column is-2 has-text-right cm-node-group-name">
+              <label><%= group.name %></label>
             </div>
             <div class="column is-10">
-              <%= for note <- group[:notes] do %>
-                <span class="cm-note">
-                  <a class="cm-note-name"><%= note[:name] %></a>
+              <%= for node <- group.nodes do %>
+                <span class="cm-node">
+                  <%= live_link node.name, 
+                      to: Routes.live_path(@socket, CommunityWeb.TopicsLive, %{node_id: node.id}),
+                      class: "cm-node-name" %>
                 </span>
               <% end %>
             </div>

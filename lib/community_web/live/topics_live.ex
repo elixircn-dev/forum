@@ -1,19 +1,13 @@
 defmodule CommunityWeb.TopicsLive do
   use Phoenix.LiveView, container: {:div, class: "cm-page"}
 
+  alias CommunityWeb.IndexLive
+
   @topics [
     [id: 0, name: "全部", to: "news"],
     [id: 10002, name: "聊天/灌水", to: "chat"],
     [id: 10003, name: "问题/帮助", to: "questions-help"],
     [id: 10004, name: "讨论", to: "discussions"]
-  ]
-
-  @nodes [
-    %{id: 1, name: "Phoenix"},
-    %{id: 2, name: "Ecto"},
-    %{id: 3, name: "Mix"},
-    %{id: 4, name: "Plug"},
-    %{id: 5, name: "Erlang/BEAM"}
   ]
 
   def render(assigns) do
@@ -24,7 +18,7 @@ defmodule CommunityWeb.TopicsLive do
     {:ok,
      assign(socket,
        topics: @topics,
-       nodes: @nodes,
+       nodes: IndexLive.nodes(),
        category_id: category_id,
        node_id: node_id
      )}

@@ -4,7 +4,7 @@
 $category-link-color: darken($default-link-color, 5%);
 $category-link-hover-color: lighten($default-link-color, 5%);
 $category-icon-font-size: 3.5rem;
-$note-group-name-color: darken($default-link-color, 5%);
+$node-group-name-color: darken($default-link-color, 5%);
 
 // 分类列表
 .cm-home-categories-card {
@@ -31,11 +31,11 @@ $note-group-name-color: darken($default-link-color, 5%);
   }
 }
 // 节点列表
-.cm-home-notes-card {
+.cm-home-nodes-card {
   .card-header-title {
     color: $default-card-header-title-color;
   }
-  .cm-note-group {
+  .cm-node-group {
     .column {
       padding: 4px 10px 4px 0;
     }
@@ -43,12 +43,12 @@ $note-group-name-color: darken($default-link-color, 5%);
       color: #a8aaa8;
     }
   }
-  .cm-note {
+  .cm-node {
     display: inline-block;
     width: 105px;
     margin-bottom: 10px;
     &-name {
-      color: $note-group-name-color;
+      color: $node-group-name-color;
     }
     &-name:hover {
       text-decoration: underline;

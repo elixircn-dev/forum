@@ -84,11 +84,11 @@
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <footer class="footer cm-footer">
       <div class="container">
-        <div class="columns">
+        <div class="columns is-desktop">
           <div class="column">
             <p class="title is-5">Elixir China</p>
             <p>
-              Powered
+              Powered by
               <a href="https://github.com/phoenixframework/phoenix_live_view">
                 <span>Phoenix LiveView</span>
               </a>

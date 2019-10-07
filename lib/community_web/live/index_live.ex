@@ -2,46 +2,46 @@ defmodule CommunityWeb.IndexLive do
   use Phoenix.LiveView, container: {:div, class: "cm-page"}
 
   @categories [
-    [icon: "far fa-comments", color: "#4e2a8e", text: "Elixir 社区", to: "＃"],
-    [icon: "fas fa-book", color: "#8AD654", text: "技术文档", to: "＃"],
-    [icon: "fas fa-users", color: "#289EBF", text: "求职招聘", to: "＃"],
-    [icon: "fas fa-star", color: "#fee83c", text: "精华文章", to: "＃"]
+    %{icon: "far fa-comments", color: "#4e2a8e", text: "Elixir 社区", to: "＃"},
+    %{icon: "fas fa-book", color: "#8AD654", text: "技术文档", to: "＃"},
+    %{icon: "fas fa-users", color: "#289EBF", text: "求职招聘", to: "＃"},
+    %{icon: "fas fa-star", color: "#fee83c", text: "精华文章", to: "＃"}
   ]
 
-  @note_groups [
-    [
+  @node_groups [
+    %{
       name: "Elixir",
-      notes: [
-        [id: 1, name: "常见问题"],
-        [id: 2, name: "版本变化"],
-        [id: 3, name: "部署"],
-        [id: 4, name: "测试"],
-        [id: 5, name: "性能调优"],
-        [id: 6, name: "重构"],
-        [id: 7, name: "开源"],
-        [id: 8, name: "贡献"],
-        [id: 9, name: "求职"]
+      nodes: [
+        %{id: 1, name: "常见问题"},
+        %{id: 2, name: "版本变化"},
+        %{id: 3, name: "部署"},
+        %{id: 4, name: "测试"},
+        %{id: 5, name: "性能调优"},
+        %{id: 6, name: "重构"},
+        %{id: 7, name: "开源"},
+        %{id: 8, name: "贡献"},
+        %{id: 9, name: "求职"}
       ]
-    ],
-    [
+    },
+    %{
       name: "框架/工具",
-      notes: [
-        [id: 10, name: "Mix"],
-        [id: 11, name: "Phoenix"],
-        [id: 12, name: "Ecto"],
-        [id: 13, name: "Distillery"]
+      nodes: [
+        %{id: 10, name: "Mix"},
+        %{id: 11, name: "Phoenix"},
+        %{id: 12, name: "Ecto"},
+        %{id: 13, name: "Distillery"}
       ]
-    ],
-    [
+    },
+    %{
       name: "概念",
-      notes: [
-        [id: 14, name: "NIF"],
-        [id: 15, name: "分布式"],
-        [id: 16, name: "ETS/DETS"],
-        [id: 17, name: "Mnesia"],
-        [id: 18, name: "热更"]
+      nodes: [
+        %{id: 14, name: "NIF"},
+        %{id: 15, name: "分布式"},
+        %{id: 16, name: "ETS/DETS"},
+        %{id: 17, name: "Mnesia"},
+        %{id: 18, name: "热更"}
       ]
-    ]
+    }
   ]
 
   def render(assigns) do
@@ -49,6 +49,8 @@ defmodule CommunityWeb.IndexLive do
   end
 
   def mount(_attrs, socket) do
-    {:ok, assign(socket, categories: @categories, note_groups: @note_groups)}
+    {:ok, assign(socket, categories: @categories, node_groups: @node_groups)}
   end
+
+  def nodes, do: @node_groups |> Enum.map(fn group -> group.nodes end) |> List.flatten()
 end
