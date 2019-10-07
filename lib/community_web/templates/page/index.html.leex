@@ -60,4 +60,19 @@
       </div>
     </div>
   </section>
+  <%# 热门城市卡片 %>
+  <section class="section">
+    <div class="card cm-hot-cities">
+      <header class="card-header">
+        <p class="card-header-title">热门城市</p>
+      </header>
+      <div class="card-content has-text-centered">
+        <%= for city <- @cities do %>
+          <span>
+            <a><%= city.name %></a> 
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </section>
 </div>

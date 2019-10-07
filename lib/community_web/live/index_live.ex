@@ -44,12 +44,21 @@ defmodule CommunityWeb.IndexLive do
     }
   ]
 
+  @cities [
+    %{id: 1, name: "北京"},
+    %{id: 1, name: "上海"},
+    %{id: 1, name: "深圳"},
+    %{id: 1, name: "广州"},
+    %{id: 1, name: "杭州"},
+    %{id: 1, name: "南京"}
+  ]
+
   def render(assigns) do
     Phoenix.View.render(CommunityWeb.PageView, "index.html", assigns)
   end
 
   def mount(_attrs, socket) do
-    {:ok, assign(socket, categories: @categories, node_groups: @node_groups)}
+    {:ok, assign(socket, categories: @categories, node_groups: @node_groups, cities: @cities)}
   end
 
   def nodes, do: @node_groups |> Enum.map(fn group -> group.nodes end) |> List.flatten()

@@ -55,3 +55,18 @@ $node-group-name-color: darken($default-link-color, 5%);
     }
   }
 }
+//热门城市
+.cm-hot-cities {
+  .card-header-title {
+    color: $default-card-header-title-color;
+  }
+  .card-content > span {
+    margin: auto 1rem;
+    & > a {
+      color: $default-link-color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
