@@ -57,6 +57,18 @@ $navbar-background-active-color: darken($navbar-background-color, 10%);
   }
 }
 
+.cm-footer {
+  a {
+    color: $default-link-color;
+    span {
+      font-weight: bold;
+    }
+    &:hover {
+      color: $elixir-color;
+    }
+  }
+}
+
 // 改进不同设备样式
 @media screen and (min-width: 1024px) {
   .cm-page > .container > .section {

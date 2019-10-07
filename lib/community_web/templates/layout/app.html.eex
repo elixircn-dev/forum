@@ -84,13 +84,45 @@
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     <footer class="footer cm-footer">
       <div class="container">
-        <section class="section has-text-centered">
-          <strong>Elixir China</strong>
-          <span>by</span>
-          <a>Hentioe</a>,
-          <span>Powered by</span>
-          <a href="https://github.com/phoenixframework/phoenix_live_view">Phoenix LiveView</a>
-        </section>
+        <div class="columns">
+          <div class="column">
+            <p class="title is-5">Elixir China</p>
+            <p>
+              Powered
+              <a href="https://github.com/phoenixframework/phoenix_live_view">
+                <span>Phoenix LiveView</span>
+              </a>
+            </p>
+          </div>
+          <div class="column">
+            <P class="title is-5">Join Us</P>
+            <p>
+              <a href="https://jq.qq.com/?_wv=1027&k=5Erle1B">
+                <i class="fas fa-users"></i>
+                ·
+                <i class="fab fa-qq"></i>
+                <span>912763380</span>
+              </a>
+            </p>
+            <p>
+              <a href="https://t.me/elixir_cn">
+                <i class="fas fa-users"></i>
+                ·
+                <i class="fab fa-telegram"></i>
+                <span>@elixir_cn</span>
+              </a>
+            </p>
+          </div>
+          <div class="column">
+            <P class="title is-5">More</P>
+            <P>
+              <a href="https://github.com/elixirchina">
+                <i class="fab fa-github"></i>
+                <span>@elixirchina</span>
+              </a>
+            </P>
+          </div>
+        </div>
       </div>
     </footer>
   </body>
