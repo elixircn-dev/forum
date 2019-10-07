@@ -7,13 +7,19 @@ defmodule CommunityWeb.ArticleLive do
            |> Application.app_dir("priv/data/article.md")
            |> File.read!()
 
+  @markdown_opts %Earmark.Options{
+    code_class_prefix: "lang-",
+    smartypants: false
+  }
+
+
   def render(assigns) do
     Phoenix.View.render(PageView, "article.html", assigns)
   end
 
   def mount(_attrs, socket) do
     html_content =
-      case Earmark.as_html(@content) do
+      case @content |> Earmark.as_html(@markdown_opts) do
         {:ok, html, _} -> html
         {:error, _, message} -> "Markdown document parsing failed, reason:\n> #{message}"
       end
