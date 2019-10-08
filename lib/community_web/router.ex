@@ -20,6 +20,7 @@ defmodule CommunityWeb.Router do
     live "/", IndexLive
     live "/topics", TopicsLive
     live "/article/*path", ArticleLive
+    live "/users/city/:city_id", CityLive
   end
 
   # Other scopes may use custom stacks.

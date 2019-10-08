@@ -12,7 +12,6 @@ defmodule CommunityWeb.ArticleLive do
     smartypants: false
   }
 
-
   def render(assigns) do
     Phoenix.View.render(PageView, "article.html", assigns)
   end

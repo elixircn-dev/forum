@@ -48,11 +48,11 @@ defmodule CommunityWeb.IndexLive do
 
   @cities [
     %{id: 1, name: "北京"},
-    %{id: 1, name: "上海"},
-    %{id: 1, name: "深圳"},
-    %{id: 1, name: "广州"},
-    %{id: 1, name: "杭州"},
-    %{id: 1, name: "南京"}
+    %{id: 2, name: "上海"},
+    %{id: 3, name: "深圳"},
+    %{id: 4, name: "广州"},
+    %{id: 5, name: "杭州"},
+    %{id: 6, name: "南京"}
   ]
 
   def render(assigns) do
@@ -64,4 +64,6 @@ defmodule CommunityWeb.IndexLive do
   end
 
   def nodes, do: @node_groups |> Enum.map(fn group -> group.nodes end) |> List.flatten()
+
+  def cities, do: @cities
 end

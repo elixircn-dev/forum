@@ -69,7 +69,8 @@
       <div class="card-content has-text-centered">
         <%= for city <- @cities do %>
           <span>
-            <a><%= city.name %></a> 
+            <%= live_link city.name, 
+                  to: Routes.live_path(@socket, CommunityWeb.CityLive, city.id) %>
           </span>
         <% end %>
       </div>

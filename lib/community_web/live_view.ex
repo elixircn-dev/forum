@@ -6,7 +6,7 @@ defmodule CommunityWeb.LiveView do
     end
   end
 
-  defmacro conv_i_compatible(str, default \\ 0) do
+  defmacro to_i(str, default \\ 0) do
     quote do
       try do
         unquote(str)

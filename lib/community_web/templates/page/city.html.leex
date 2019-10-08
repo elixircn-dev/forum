@@ -1,0 +1,17 @@
+<div class="container cm-page-city">
+  <section class="section">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title"><%= @city.name %>的会员</p>
+      </header>
+      <div class="card-content has-text-centered cm-page-city-users">
+        <%= for user <- @users do %>
+          <div class="has-text-centered">
+            <div><img src="/images/face/<%= user.face %>"></div>
+            <a><%= user.name %></a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
