@@ -9,14 +9,18 @@ $node-group-name-color: darken($default-link-color, 5%);
 // 分类列表
 .cm-home-categories-card {
   .cm-category {
+    cursor: pointer;
     &-icon {
       font-size: $category-icon-font-size;
     }
     &-link {
       color: $category-link-color;
       font-weight: bold;
-      &:hover {
-        color: $category-link-hover-color;
+    }
+    &:hover {
+      background: darken($card-background-color, 2%);
+      .card-footer {
+        background: darken($card-footer-background-color, 2%);
       }
     }
   }

@@ -56,6 +56,7 @@ class PageHook {
   }
   updateTitle() {
     let hookName = this.constructor.name;
+    console.log(hookName);
     let container = document.querySelector(
       `.container[phx-hook='${hookName}']`
     );
