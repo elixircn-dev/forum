@@ -46,6 +46,7 @@ class PageHook {
       topicItem.classList.add("is-active");
     }
     this.updateTitle();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
   destroyed() {
     if (this.options.in_topic) {
@@ -58,9 +59,11 @@ class PageHook {
     let container = document.querySelector(
       `.container[phx-hook='${hookName}']`
     );
+    console.log(`container: ${container}`);
     let title = defaultTitle;
     if (container != null) {
       let subtitle = container.getAttribute("cm-title");
+      console.log(`subtitle: ${subtitle}`);
       if (subtitle != null) {
         title = `${subtitle} · ${defaultTitle}`;
       }
