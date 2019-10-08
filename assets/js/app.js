@@ -33,7 +33,7 @@ const defaultOptions = {
   // 选中「主题」
   in_topic: false
 };
-const defaultTitle = "Elixir China";
+const defaultTitle = document.title;
 const topicItem = document.querySelector(".navbar-item[href='/topics']");
 
 class PageHook {
