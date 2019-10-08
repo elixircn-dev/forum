@@ -28,6 +28,64 @@ import "./bulma_event";
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+let Hooks = {};
+const defaultOptions = {
+  // 选中「主题」
+  in_topic: false
+};
+const defaultTitle = "Elixir China";
+const topicItem = document.querySelector(".navbar-item[href='/topics']");
 
-let liveSocket = new LiveSocket("/live", Socket);
+class PageHook {
+  constructor(options = defaultOptions) {
+    this.options = Object.assign({ ...defaultOptions }, options);
+    this.updateTitle = this.updateTitle.bind(this);
+  }
+  mounted() {
+    if (this.options.in_topic) {
+      topicItem.classList.add("is-active");
+    }
+    this.updateTitle();
+  }
+  destroyed() {
+    if (this.options.in_topic) {
+      topicItem.classList.remove("is-active");
+    }
+    document.title = defaultTitle;
+  }
+  updateTitle() {
+    let hookName = this.constructor.name;
+    let container = document.querySelector(
+      `.container[phx-hook='${hookName}']`
+    );
+    let title = defaultTitle;
+    if (container != null) {
+      let subtitle = container.getAttribute("cm-title");
+      if (subtitle != null) {
+        title = `${subtitle} · ${defaultTitle}`;
+      }
+    }
+    document.title = title;
+  }
+}
+
+class ArticlePage extends PageHook {
+  constructor() {
+    super({ in_topic: true });
+  }
+}
+class TopicPage extends PageHook {
+  constructor() {
+    super({ in_topic: true });
+  }
+}
+class IndexPage extends PageHook {}
+class CityPage extends PageHook {}
+
+Hooks.ArticlePage = new ArticlePage();
+Hooks.IndexPage = new IndexPage();
+Hooks.TopicPage = new TopicPage();
+Hooks.CityPage = new CityPage();
+// 更新标题
+let liveSocket = new LiveSocket("/live", Socket, { hooks: Hooks });
 liveSocket.connect();
