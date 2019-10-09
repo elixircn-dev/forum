@@ -37,8 +37,9 @@ const defaultTitle = document.title;
 const topicItem = document.querySelector(".navbar-item[href='/topics']");
 
 class PageHook {
-  constructor(options = defaultOptions) {
+  constructor(hookName, options = defaultOptions) {
     this.options = Object.assign({ ...defaultOptions }, options);
+    this.hookName = hookName;
     this.updateTitle = this.updateTitle.bind(this);
   }
   mounted() {
@@ -55,10 +56,9 @@ class PageHook {
     document.title = defaultTitle;
   }
   updateTitle() {
-    let hookName = this.constructor.name;
-    console.log(hookName);
+    console.log(this.hookName);
     let container = document.querySelector(
-      `.container[phx-hook='${hookName}']`
+      `.container[phx-hook='${this.hookName}']`
     );
     console.log(`container: ${container}`);
     let title = defaultTitle;
@@ -75,16 +75,24 @@ class PageHook {
 
 class ArticlePage extends PageHook {
   constructor() {
-    super({ in_topic: true });
+    super(ArticlePage.name, { in_topic: true });
   }
 }
 class TopicPage extends PageHook {
   constructor() {
-    super({ in_topic: true });
+    super(TopicPage.name, { in_topic: true });
   }
 }
-class IndexPage extends PageHook {}
-class CityPage extends PageHook {}
+class IndexPage extends PageHook {
+  constructor(){
+    super(IndexPage.name)
+  }
+}
+class CityPage extends PageHook {
+  constructor(){
+    super(CityPage.name)
+  }
+}
 
 Hooks.ArticlePage = new ArticlePage();
 Hooks.IndexPage = new IndexPage();
