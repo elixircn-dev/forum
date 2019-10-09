@@ -46,19 +46,14 @@
                   class: "navbar-item", 
                   to: Routes.live_path(@conn, CommunityWeb.TopicsLive)
               %>
-              <a class="navbar-item">
-                <span>
-                  翻译
-                </span>
-              </a>
-
-              <a
-                class="navbar-item"
-              >
-                <span>
-                  关于
-                </span>
-              </a>
+              <%= live_link "贡献", 
+                  class: "navbar-item", 
+                  to: Routes.live_path(@conn, CommunityWeb.ContributeLive)
+              %>
+              <%= live_link "关于", 
+                  class: "navbar-item", 
+                  to: Routes.live_path(@conn, CommunityWeb.AboutLive)
+              %>
             </div>
             <div class="navbar-end">
               <a

@@ -7,8 +7,10 @@
       <div class="card-content has-text-centered cm-page-city-users">
         <%= for user <- @users do %>
           <div class="has-text-centered">
-            <div><img src="/images/face/<%= user.face %>"></div>
-            <a><%= user.name %></a>
+            <%= live_link to: Routes.live_path(@socket, CommunityWeb.UserLive, 1) do %>
+              <div><img src="/images/face/<%= user.face %>"></div>
+              <%= user.name %>
+            <% end %>
           </div>
         <% end %>
       </div>

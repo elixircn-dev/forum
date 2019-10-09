@@ -1,0 +1,24 @@
+@import "../base.scss";
+
+.cm-page-contribute {
+  &-users {
+    & > div {
+      display: inline-block;
+      margin: 1rem;
+      width: 4rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      img {
+        height: 45px;
+        width: 45px;
+      }
+      a {
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

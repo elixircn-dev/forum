@@ -1,0 +1,31 @@
+<div class="container cm-page-contribute" phx-hook="ContributePage" cm-title="社区贡献">
+  <div class="section">
+    <div class="card">
+      <div class="card-header">
+        <p class="card-header-title">参与贡献</p>
+      </div>
+      <div class="card-content">
+        <div class="content">
+          <%= raw @content %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="card">
+      <div class="card-header">
+        <p class="card-header-title">贡献名单</p>
+      </div>
+      <div class="card-content has-text-centered cm-page-contribute-users">
+        <%= for user <- @users do %>
+          <div class="has-text-centered">
+            <%= live_link to: Routes.live_path(@socket, CommunityWeb.UserLive, 1) do %>
+              <div><img src="/images/face/<%= user.face %>"></div>
+              <%= user.name %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

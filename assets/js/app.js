@@ -92,12 +92,24 @@ class IndexPage extends PageHook {
 }
 class CityPage extends PageHook {}
 class UserPage extends PageHook {}
+class ContributePage extends PageHook {
+  constructor() {
+    super({ select_navbar_item: "/contribute" });
+  }
+}
+class AboutPage extends PageHook {
+  constructor() {
+    super({ select_navbar_item: "/about" });
+  }
+}
 
 Hooks.ArticlePage = new ArticlePage();
 Hooks.IndexPage = new IndexPage();
 Hooks.TopicPage = new TopicPage();
 Hooks.CityPage = new CityPage();
 Hooks.UserPage = new UserPage();
+Hooks.ContributePage = new ContributePage();
+Hooks.AboutPage = new AboutPage();
 // 更新标题
 let liveSocket = new LiveSocket("/live", Socket, { hooks: Hooks });
 liveSocket.connect();

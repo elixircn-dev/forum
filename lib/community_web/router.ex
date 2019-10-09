@@ -22,6 +22,8 @@ defmodule CommunityWeb.Router do
     live "/article/*path", ArticleLive
     live "/users/city/:city_id", CityLive
     live "/user/:user_id", UserLive
+    live "/contribute", ContributeLive
+    live "/about", AboutLive
   end
 
   # Other scopes may use custom stacks.

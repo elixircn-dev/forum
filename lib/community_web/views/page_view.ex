@@ -12,4 +12,8 @@ defmodule CommunityWeb.PageView do
       "选择话题"
     end
   end
+
+  def grouping(list, size), do: CommunityWeb.LiveView.grouping(list, size)
+
+  def remove_nil(list) when is_list(list), do: Enum.filter(list, &(!is_nil(&1)))
 end

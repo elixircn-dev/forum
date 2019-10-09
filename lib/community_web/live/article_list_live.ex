@@ -101,16 +101,7 @@ defmodule CommunityWeb.ArticlesLive do
   def mount(%{p: _p, single: single}, socket) do
     articles =
       unless single do
-        @articles
-        |> Enum.with_index()
-        |> Enum.filter(fn {_, i} ->
-          i == 0 || rem(i, 2) == 0
-        end)
-        |> Enum.map(fn {_, i} ->
-          a1 = @articles |> Enum.at(i)
-          a2 = @articles |> Enum.at(i + 1)
-          [a1, a2]
-        end)
+        @articles |> grouping(2)
       else
         @articles |> Enum.map(fn a -> [a] end)
       end
