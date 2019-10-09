@@ -37,9 +37,8 @@ const defaultTitle = document.title;
 const topicItem = document.querySelector(".navbar-item[href='/topics']");
 
 class PageHook {
-  constructor(hookName, options = defaultOptions) {
+  constructor(options = defaultOptions) {
     this.options = Object.assign({ ...defaultOptions }, options);
-    this.hookName = hookName;
     this.updateTitle = this.updateTitle.bind(this);
   }
   mounted() {
@@ -56,15 +55,13 @@ class PageHook {
     document.title = defaultTitle;
   }
   updateTitle() {
-    console.log(this.hookName);
+    let hookName = this.constructor.name;
     let container = document.querySelector(
-      `.container[phx-hook='${this.hookName}']`
+      `.container[phx-hook='${hookName}']`
     );
-    console.log(`container: ${container}`);
     let title = defaultTitle;
     if (container != null) {
       let subtitle = container.getAttribute("cm-title");
-      console.log(`subtitle: ${subtitle}`);
       if (subtitle != null) {
         title = `${subtitle} · ${defaultTitle}`;
       }
@@ -75,24 +72,16 @@ class PageHook {
 
 class ArticlePage extends PageHook {
   constructor() {
-    super(ArticlePage.name, { in_topic: true });
+    super({ in_topic: true });
   }
 }
 class TopicPage extends PageHook {
   constructor() {
-    super(TopicPage.name, { in_topic: true });
+    super({ in_topic: true });
   }
 }
-class IndexPage extends PageHook {
-  constructor(){
-    super(IndexPage.name)
-  }
-}
-class CityPage extends PageHook {
-  constructor(){
-    super(CityPage.name)
-  }
-}
+class IndexPage extends PageHook {}
+class CityPage extends PageHook {}
 
 Hooks.ArticlePage = new ArticlePage();
 Hooks.IndexPage = new IndexPage();
