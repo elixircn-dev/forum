@@ -38,19 +38,15 @@
 
           <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
+              <%= live_link "首页", 
+                  class: "navbar-item", 
+                  to: Routes.live_path(@conn, CommunityWeb.IndexLive)
+              %>
               <%= live_link "主题", 
                   class: "navbar-item", 
                   to: Routes.live_path(@conn, CommunityWeb.TopicsLive)
               %>
               <a class="navbar-item">
-                <span>
-                  招聘
-                </span>
-              </a>
-
-              <a
-                class="navbar-item"
-              >
                 <span>
                   翻译
                 </span>
@@ -60,11 +56,10 @@
                 class="navbar-item"
               >
                 <span>
-                  项目
+                  关于
                 </span>
               </a>
             </div>
-
             <div class="navbar-end">
               <a
                 class="navbar-item"

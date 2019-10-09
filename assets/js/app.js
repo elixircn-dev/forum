@@ -30,11 +30,10 @@ import "./bulma_event";
 // import socket from "./socket"
 let Hooks = {};
 const defaultOptions = {
-  // 选中「主题」
-  in_topic: false
+  // 选中的导航栏子项
+  select_navbar_item: null
 };
 const defaultTitle = document.title;
-const topicItem = document.querySelector(".navbar-item[href='/topics']");
 
 class PageHook {
   constructor(options = defaultOptions) {
@@ -42,15 +41,21 @@ class PageHook {
     this.updateTitle = this.updateTitle.bind(this);
   }
   mounted() {
-    if (this.options.in_topic) {
-      topicItem.classList.add("is-active");
+    if (this.options.select_navbar_item) {
+      let item = document.querySelector(
+        `.navbar-menu .navbar-item[href='${this.options.select_navbar_item}']`
+      );
+      item.classList.add("is-active");
     }
     this.updateTitle();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
   destroyed() {
-    if (this.options.in_topic) {
-      topicItem.classList.remove("is-active");
+    if (this.options.select_navbar_item) {
+      let item = document.querySelector(
+        `.navbar-menu .navbar-item[href='${this.options.select_navbar_item}']`
+      );
+      item.classList.remove("is-active");
     }
     document.title = defaultTitle;
   }
@@ -72,15 +77,19 @@ class PageHook {
 
 class ArticlePage extends PageHook {
   constructor() {
-    super({ in_topic: true });
+    super({ select_navbar_item: "/topics" });
   }
 }
 class TopicPage extends PageHook {
   constructor() {
-    super({ in_topic: true });
+    super({ select_navbar_item: "/topics" });
   }
 }
-class IndexPage extends PageHook {}
+class IndexPage extends PageHook {
+  constructor() {
+    super({ select_navbar_item: "/" });
+  }
+}
 class CityPage extends PageHook {}
 class UserPage extends PageHook {}
 

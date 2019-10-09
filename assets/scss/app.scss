@@ -9,6 +9,16 @@
 @import "./pages/city.scss";
 @import "./pages/user.scss";
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.cm-footer {
+  flex: 1;
+}
+
 $nav-menu-item-border-width: 3px;
 $nav-menu-item-transition-duration: 0.2s;
 $navbar-background-active-color: darken($navbar-background-color, 10%);

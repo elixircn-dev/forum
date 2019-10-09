@@ -10,14 +10,18 @@
           </header>
           <div class="columns is-mobile is-marginless cm-article2-info">
             <div class="column is-paddingless is-narrow">
-                <a>huacnlee</a>
+                <%= live_link "huacnlee", 
+                    to: Routes.live_path(@socket, CommunityWeb.UserLive,1)
+                %>
                 ·
                 <span>12</span>
                 天前
               </div>
             <div class="column is-paddingless is-narrow is-hidden-mobile">
               <span>&nbsp;· 最后由</span>
-              <a>zzz6519003</a>
+              <%= live_link "zzz6519003", 
+                  to: Routes.live_path(@socket, CommunityWeb.UserLive, 1)
+              %>
               回复于
               <span>2</span>
               <span>天前</span>
