@@ -1,0 +1,17 @@
+@import "../base.scss";
+
+.cm-page-user {
+  &-face {
+    width: 150px;
+    height: 150px;
+  }
+  &-info {
+    &-items > div {
+      font-size: 0.9rem;
+      margin: 1rem auto;
+      & > span:first-child {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
