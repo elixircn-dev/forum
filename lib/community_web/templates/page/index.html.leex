@@ -6,14 +6,16 @@
         <div class="column">
           <div class="card cm-category">
             <div class="card-content has-text-centered">
-              <span class="cm-category-icon">
+              <%= live_link class: "cm-category-icon",
+                    to: Routes.live_path(@socket, category.view_module, category.params) do %>
                 <i class="<%= category.icon %>" style="color: <%= category.color %>;"></i>
-              </span>
+              <% end %>
             </div>
             <footer class="card-footer">
-              <a href="<%= category.to %>" class="card-footer-item cm-category-link">
+              <%= live_link class: "card-footer-item cm-category-link",
+                    to: Routes.live_path(@socket, category.view_module, category.params) do %>
                 <span><%= category.text %></span>
-              </a>
+              <% end %>
             </footer>
           </div>
         </div>

@@ -4,10 +4,38 @@ defmodule CommunityWeb.IndexLive do
   use LiveView, container: {:div, class: "cm-page"}
 
   @categories [
-    %{icon: "far fa-comments", color: "#4e2a8e", text: "Elixir 社区", to: "＃"},
-    %{icon: "fas fa-book", color: "#8AD654", text: "技术文档", to: "＃"},
-    %{icon: "fas fa-users", color: "#289EBF", text: "求职招聘", to: "＃"},
-    %{icon: "fas fa-star", color: "#fee83c", text: "精华文章", to: "＃"}
+    %{
+      icon: "far fa-comments",
+      color: "#4e2a8e",
+      text: "Elixir 社区",
+      to: "#",
+      view_module: CommunityWeb.TopicsLive,
+      params: %{}
+    },
+    %{
+      icon: "fas fa-book",
+      color: "#8AD654",
+      text: "技术文档",
+      to: "＃",
+      view_module: CommunityWeb.TopicsLive,
+      params: %{node_id: 10}
+    },
+    %{
+      icon: "fas fa-users",
+      color: "#289EBF",
+      text: "求职招聘",
+      to: "＃",
+      view_module: CommunityWeb.TopicsLive,
+      params: %{}
+    },
+    %{
+      icon: "fas fa-star",
+      color: "#fee83c",
+      text: "精华文章",
+      to: "＃",
+      view_module: CommunityWeb.TopicsLive,
+      params: %{}
+    }
   ]
 
   @node_groups [
@@ -16,13 +44,10 @@ defmodule CommunityWeb.IndexLive do
       nodes: [
         %{id: 1, name: "常见问题"},
         %{id: 2, name: "版本变化"},
-        %{id: 3, name: "部署"},
-        %{id: 4, name: "测试"},
+        %{id: 10, name: "文档/翻译"},
+        %{id: 3, name: "CI/CD"},
         %{id: 5, name: "性能调优"},
-        %{id: 6, name: "重构"},
-        %{id: 7, name: "开源"},
-        %{id: 8, name: "贡献"},
-        %{id: 9, name: "求职"}
+        %{id: 7, name: "开源项目"}
       ]
     },
     %{

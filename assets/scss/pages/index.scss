@@ -9,6 +9,13 @@ $node-group-name-color: darken($default-link-color, 5%);
 // 分类列表
 .cm-home-categories-card {
   .cm-category {
+    & .card-content {
+      padding: 0;
+      & > a {
+        display: block;
+        padding: 1.5rem;
+      }
+    }
     cursor: pointer;
     &-icon {
       font-size: $category-icon-font-size;

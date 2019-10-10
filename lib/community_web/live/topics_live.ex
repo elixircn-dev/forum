@@ -5,9 +5,9 @@ defmodule CommunityWeb.TopicsLive do
 
   @topics [
     [id: 0, name: "全部", to: "news"],
+    [id: 10004, name: "讨论", to: "discussions"],
     [id: 10002, name: "聊天/灌水", to: "chat"],
-    [id: 10003, name: "问题/帮助", to: "questions-help"],
-    [id: 10004, name: "讨论", to: "discussions"]
+    [id: 10003, name: "问题/帮助", to: "questions-help"]
   ]
 
   def render(assigns) do
