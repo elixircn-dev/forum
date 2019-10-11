@@ -13,5 +13,31 @@
         margin-right: 0.5rem;
       }
     }
+
+    &-business {
+      .divide {
+        color: hsl(0, 0%, 48%);
+        user-select: none;
+      }
+    }
+  }
+  &-activities {
+    &-date {
+      color: lighten($default-link-color, 35%)
+    }
+    &-content {
+      margin-top: 1rem;
+      color: lighten($default-link-color, 10%)
+    }
+    a {
+      color: darken($default-link-color, 20%);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    blockquote {
+      padding: 1rem;
+      margin: 1rem 0 0 0;
+    }
   }
 }
