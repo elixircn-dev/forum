@@ -8,7 +8,11 @@ defmodule CommunityWeb.CityLive do
   end
 
   def mount(_session, socket) do
-    id = 1
+    {:ok, assign(socket, [])}
+  end
+
+  def handle_params(params, _uri, socket) do
+    id = params |> Map.get("id", "0") |> to_i
     cities = IndexLive.cities()
 
     cities =
@@ -28,6 +32,6 @@ defmodule CommunityWeb.CityLive do
         %{id: i, name: "user-#{i}", face: "#{Enum.random(1..3)}.png"}
       end)
 
-    {:ok, assign(socket, city: city, users: users)}
+    {:noreply, socket |> assign(city: city, users: users)}
   end
 end
