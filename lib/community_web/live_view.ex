@@ -2,6 +2,7 @@ defmodule CommunityWeb.LiveView do
   defmacro __using__(otps) do
     quote do
       use Phoenix.LiveView, unquote(otps)
+      alias Phoenix.LiveView.Socket
       import CommunityWeb.LiveView
     end
   end

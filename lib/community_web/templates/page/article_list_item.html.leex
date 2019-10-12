@@ -13,7 +13,7 @@
         >
           <%= live_link @article[:title], 
               class: "cm-article-title", 
-              to: Routes.live_path(@socket, CommunityWeb.ArticleLive, %{})
+              to: Routes.live_path(@socket, CommunityWeb.ArticleLive, 10001)
           %>
           <div class="cm-article-info">
             <%= live_link @article[:author], 

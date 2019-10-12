@@ -19,7 +19,7 @@ defmodule CommunityWeb.Router do
 
     live "/", IndexLive
     live "/topics", TopicsLive
-    live "/articles/*path", ArticleLive
+    live "/t/:id", ArticleLive
     live "/cities/:id/users", CityLive
     live "/users/:id", UserLive
     live "/contribute", ContributeLive
