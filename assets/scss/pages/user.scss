@@ -31,6 +31,7 @@
     }
     a {
       color: darken($default-link-color, 20%);
+      font-size: 1.1rem;
       &:hover {
         text-decoration: underline;
       }
