@@ -22,23 +22,24 @@
     }
   }
   &-activities {
-    &-date {
-      color: lighten($default-link-color, 35%)
+    & > div {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid lighten($default-shadow-color, 5%);
+    }
+    &-header {
+      color: lighten($default-link-color, 35%);
+    }
+    &-title {
+      a {
+        color: darken($default-link-color, 20%);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      margin: 1rem 0;
     }
     &-content {
       margin-top: 1rem;
-      color: lighten($default-link-color, 10%)
-    }
-    a {
-      color: darken($default-link-color, 20%);
-      font-size: 1.1rem;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-    blockquote {
-      padding: 1rem;
-      margin: 1rem 0 0 0;
     }
   }
 }

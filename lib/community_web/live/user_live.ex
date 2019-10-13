@@ -33,6 +33,23 @@ defmodule CommunityWeb.UserLive do
     }
   ]
 
+  @recently_activities [
+    %{
+      type: :reply,
+      date: 1,
+      title: "任何看待 Elixir China？",
+      content: "这好像只是个 LiveView 演示吧？需要人手参与吗？",
+      article_id: 10001
+    },
+    %{
+      type: :reply,
+      date: 1,
+      title: "有群吗？我想加入。",
+      content: "有的，在页脚有两个，都有验证问题。",
+      article_id: 10001
+    }
+  ]
+
   def render(assigns) do
     Phoenix.View.render(PageView, "user.html", assigns)
   end
@@ -42,10 +59,20 @@ defmodule CommunityWeb.UserLive do
   end
 
   def handle_params(params, _uri, socket) do
-    id = params |> Map.get("id", "0") |> to_i
+    id = to_i(params["id"] || "0")
 
-    user = @users |> Enum.at(id - 1)
+    {:noreply, socket |> assign(id: id) |> fetch()}
+  end
 
-    {:noreply, socket |> assign(user: user)}
+  def fetch(%Socket{assigns: %{id: id}} = socket) do
+    socket |> assign(user: find_user(id), activities: find_activities(id))
+  end
+
+  defp find_user(id) do
+    @users |> Enum.at(id - 1)
+  end
+
+  defp find_activities(_user_id) do
+    @recently_activities
   end
 end

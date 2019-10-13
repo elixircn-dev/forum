@@ -60,19 +60,21 @@
         </div>
         <div>
           <div class="content cm-page-user-activities">
-            <div>
-              <a>回复：「如何看待 Elixir China？」中的评论</a>
-              <span class="cm-page-user-activities-date">于 2 天前</span>
-              <blockquote>用户2：还未成形吧？</blockquote>
-              <div class="cm-page-user-activities-content">是的，这好像只是个 LiveView 演示。</div>
-              <hr />
-            </div>
-            <div>
-              <a>评论：「如何看待 Elixir China？」</a>
-              <span class="cm-page-user-activities-date">于 10 天前</span>
-              <div class="cm-page-user-activities-content">还行啊！我能参与吗？</div>
-              <hr />
-            </div>
+            <%= for activity <- @activities do %>
+              <% action_name = if activity.type == :reply, do: "回复了主题"%>
+              <div>
+                <div class="cm-page-user-activities-header is-clearfix">
+                  <span class="is-pulled-left cm-page-user-activities-header-action"><%= action_name %></span>
+                  <span class="is-pulled-right cm-page-user-activities-header-date"><%= activity.date %> 天前</span>
+                </div>
+                <p class="title is-5 cm-page-user-activities-title">
+                  <%= live_link activity.title, 
+                      to: Routes.live_path(@socket, CommunityWeb.ArticleLive, activity.article_id)
+                  %>
+                </p>
+                <div class="cm-page-user-activities-content"><%= activity.content %></div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
