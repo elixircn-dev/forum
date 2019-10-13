@@ -44,7 +44,7 @@ defmodule CommunityWeb.UserLive do
     %{
       type: :reply,
       date: 1,
-      title: "有群吗？我想加入。",
+      title: "有群吗？我想加入",
       content: "有的，在页脚有两个，都有验证问题。",
       article_id: 10001
     }

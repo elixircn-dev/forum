@@ -1,8 +1,10 @@
-<div class="container cm-page-user" phx-hook="UserPage" cm-title="user-1 (用户1)">
+<div class="container cm-page-user" phx-hook="UserPage" cm-title="<%= @user.username %> (<%= @user.nickname %>)">
   <div class="section">
     <div class="card">
       <div class="card-header">
-        <p class="card-header-title"><%= @user.username %> <%= @user.nickname %></p>
+        <p class="card-header-title">
+          <%= @user.username %> (<%= @user.nickname %>)
+        </p>
       </div>
       <div class="card-content">
         <div class="columns">
@@ -67,7 +69,7 @@
                   <span class="is-pulled-left cm-page-user-activities-header-action"><%= action_name %></span>
                   <span class="is-pulled-right cm-page-user-activities-header-date"><%= activity.date %> 天前</span>
                 </div>
-                <p class="title is-5 cm-page-user-activities-title">
+                <p class="cm-page-user-activities-title">
                   <%= live_link activity.title, 
                       to: Routes.live_path(@socket, CommunityWeb.ArticleLive, activity.article_id)
                   %>

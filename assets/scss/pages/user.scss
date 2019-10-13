@@ -30,6 +30,8 @@
       color: lighten($default-link-color, 35%);
     }
     &-title {
+      font-weight: bold;
+      font-size: 1.1rem;
       a {
         color: darken($default-link-color, 20%);
         &:hover {
