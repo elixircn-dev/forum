@@ -1,7 +1,9 @@
-<%= for line <- @articles do %>
+<% single? = @gsize == 1 %>
+
+<%= for line <- @articles |> grouping(@gsize) do %>
   <div class="columns">
   <%= for article <- line do %>
-    <%= render "article_list_item.html", article: article, single: @single, socket: @socket %>
+    <%= render "article_list_item.html", article: article, single: single?, socket: @socket %>
   <% end %>
   </div>
 <% end %>

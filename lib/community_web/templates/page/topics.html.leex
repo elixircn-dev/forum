@@ -48,7 +48,7 @@
               </div>
               <%= Phoenix.LiveView.live_render @socket,
                     CommunityWeb.ArticlesLive, 
-                    session: %{p: 1, single: true},
+                    session: %{page: 1, gsize: 1, category_id: @category_id, node_id: @node_id},
                     id: "topic_articles" %>
             </div>
           </div>

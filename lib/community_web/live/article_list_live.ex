@@ -98,18 +98,19 @@ defmodule CommunityWeb.ArticlesLive do
     Phoenix.View.render(PageView, "article_list.html", assigns)
   end
 
-  def mount(%{p: _p, single: single}, socket) do
-    articles =
-      unless single do
-        @articles |> grouping(2)
-      else
-        @articles |> Enum.map(fn a -> [a] end)
-      end
+  def mount(%{page: page, gsize: gsize} = session, socket) do
+    category_id = session[:category_id] || 0
+    node_id = session[:node_id] || 0
 
-    {:ok, assign(socket, articles: articles, single: single)}
+    {:ok,
+     socket
+     |> assign(gsize: gsize, page: page, category_id: category_id, node_id: node_id)
+     |> fetch()}
   end
 
-  def handle_info(:update, socket) do
-    {:noreply, assign(socket, p: 1)}
+  def fetch(
+        %Socket{assigns: %{page: _page, category_id: _category_id, node_id: _node_id}} = socket
+      ) do
+    socket |> assign(articles: @articles)
   end
 end

@@ -33,7 +33,7 @@
       <%= Phoenix.LiveView.live_render @socket,
           CommunityWeb.ArticlesLive, 
           container: {:div, class: "card-content"},
-          session: %{p: 1, single: false}, id: "home_articles" %>
+          session: %{page: 1, gsize: 2}, id: "home_articles" %>
     </div>
   </section>
   <%# 节点导航卡片 %>
