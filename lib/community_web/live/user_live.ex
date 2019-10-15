@@ -33,7 +33,19 @@ defmodule CommunityWeb.UserLive do
     }
   ]
 
-  @recently_activities [
+  @activities [
+    %{
+      type: :star,
+      date: 1,
+      title: "对比 LiveView 和前后端分离 SPA 方案差异",
+      article_id: 10001
+    },
+    %{
+      type: :vote,
+      date: 1,
+      title: "对比 LiveView 和前后端分离 SPA 方案差异",
+      article_id: 10001
+    },
     %{
       type: :reply,
       date: 1,
@@ -42,10 +54,10 @@ defmodule CommunityWeb.UserLive do
       article_id: 10001
     },
     %{
-      type: :reply,
-      date: 1,
+      type: :topic,
+      date: 2,
       title: "有群吗？我想加入",
-      content: "有的，在页脚有两个，都有验证问题。",
+      content: "页脚哪两个群是吗？有微信群吗？",
       article_id: 10001
     }
   ]
@@ -61,11 +73,33 @@ defmodule CommunityWeb.UserLive do
   def handle_params(params, _uri, socket) do
     id = to_i(params["id"] || "0")
 
-    {:noreply, socket |> assign(id: id) |> fetch()}
+    happened =
+      case params["happened"] do
+        "activities" ->
+          :activities
+
+        "topics" ->
+          :topics
+
+        "qualities" ->
+          :qualities
+
+        _ ->
+          :activities
+      end
+
+    {:noreply, socket |> assign(id: id, happened: happened) |> fetch()}
   end
 
-  def fetch(%Socket{assigns: %{id: id}} = socket) do
-    socket |> assign(user: find_user(id), activities: find_activities(id))
+  def fetch(%Socket{assigns: %{id: id, happened: happened}} = socket) do
+    activities =
+      case happened do
+        :activities -> find_activities(id)
+        :topics -> find_activities(id) |> Enum.filter(fn activity -> activity.type == :topic end)
+        :qualities -> []
+      end
+
+    socket |> assign(user: find_user(id), activities: activities)
   end
 
   defp find_user(id) do
@@ -73,6 +107,6 @@ defmodule CommunityWeb.UserLive do
   end
 
   defp find_activities(_user_id) do
-    @recently_activities
+    @activities
   end
 end

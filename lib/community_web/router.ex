@@ -21,6 +21,7 @@ defmodule CommunityWeb.Router do
     live "/topics", TopicsLive
     live "/t/:id", ArticleLive
     live "/cities/:id/users", CityLive
+    live "/users/:id/:happened", UserLive
     live "/users/:id", UserLive
     live "/contribute", ContributeLive
     live "/about", AboutLive

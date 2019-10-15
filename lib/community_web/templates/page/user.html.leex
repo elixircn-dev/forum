@@ -43,38 +43,44 @@
       <div class="card-content">
         <div class="tabs is-boxed">
           <ul>
-            <li class="is-active">
-              <a>
+            <li <%= if @happened == :activities, do: "class=is-active" %>>
+              <%= live_link to: Routes.live_path(@socket, CommunityWeb.UserLive, @id, "activities") do %>
                 <span>最近的动态</span>
-              </a>
-            </li>
-            <li>
-              <a>
+              <% end %>
+            <li <%= if @happened == :topics, do: "class=is-active" %>>
+              <%= live_link to: Routes.live_path(@socket, CommunityWeb.UserLive, @id, "topics") do %>
                 <span>发表的主题</span>
-              </a>
+              <% end %>
             </li>
-            <li>
-              <a>
+            <li <%= if @happened == :qualities, do: "class=is-active" %>>
+              <%= live_link to: Routes.live_path(@socket, CommunityWeb.UserLive, @id, "qualities") do %>
                 <span>精华帖</span>
-              </a>
+              <% end %>
             </li>
           </ul>
         </div>
         <div>
-          <div class="content cm-page-user-activities">
+          <div class="content cm-page-user-created">
             <%= for activity <- @activities do %>
-              <% action_name = if activity.type == :reply, do: "回复了主题"%>
+              <% {action_name, has_content?} = case activity.type do
+                      :reply -> {"回复了主题", true}
+                      :topic -> {"发表了主题", true}
+                      :vote -> {"点赞了主题", false}
+                      :star -> {"收藏了主题", false}
+                     end%>
               <div>
-                <div class="cm-page-user-activities-header is-clearfix">
-                  <span class="is-pulled-left cm-page-user-activities-header-action"><%= action_name %></span>
-                  <span class="is-pulled-right cm-page-user-activities-header-date"><%= activity.date %> 天前</span>
+                <div class="cm-page-user-created-header is-clearfix">
+                  <span class="is-pulled-left cm-page-user-created-header-action"><%= action_name %></span>
+                  <span class="is-pulled-right cm-page-user-created-header-date"><%= activity.date %> 天前</span>
                 </div>
-                <p class="cm-page-user-activities-title">
+                <p class="cm-page-user-created-title">
                   <%= live_link activity.title, 
                       to: Routes.live_path(@socket, CommunityWeb.ArticleLive, activity.article_id)
                   %>
                 </p>
-                <div class="cm-page-user-activities-content"><%= activity.content %></div>
+                <%= if has_content? do %>
+                  <div class="cm-page-user-created-content"><%= activity.content %></div>
+                <% end %>
               </div>
             <% end %>
           </div>
