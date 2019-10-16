@@ -22,7 +22,7 @@ import "classlist-polyfill";
 import "phoenix_html";
 import { Socket } from "phoenix";
 import LiveSocket from "phoenix_live_view";
-import "./bulma_event";
+import "./bulma-event";
 
 // Import local files
 //
@@ -102,6 +102,11 @@ class AboutPage extends PageHook {
     super({ select_navbar_item: "/about" });
   }
 }
+class LoginPage extends PageHook {
+  constructor() {
+    super({ select_navbar_item: "/login" });
+  }
+}
 
 Hooks.ArticlePage = new ArticlePage();
 Hooks.IndexPage = new IndexPage();
@@ -110,6 +115,7 @@ Hooks.CityPage = new CityPage();
 Hooks.UserPage = new UserPage();
 Hooks.ContributePage = new ContributePage();
 Hooks.AboutPage = new AboutPage();
+Hooks.LoginPage = new LoginPage();
 // 更新标题
 let liveSocket = new LiveSocket("/live", Socket, { hooks: Hooks });
 liveSocket.connect();
