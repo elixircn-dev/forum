@@ -3,7 +3,7 @@ name: default
 
 steps:
   - name: app-compile
-    image: bluerain/elixir:1.9.1-slim
+    image: bluerain/elixir:1.9.2-slim
     environment:
       SECRET_KEY_BASE:
         from_secret: secret_key_base
@@ -18,7 +18,7 @@ steps:
       - npm run deploy --prefix ./assets
 
   - name: app-build
-    image: bluerain/elixir:1.9.1-slim
+    image: bluerain/elixir:1.9.2-slim
     pull: true
     environment:
       SECRET_KEY_BASE:
