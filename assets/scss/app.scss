@@ -101,3 +101,12 @@ $navbar-background-active-color: darken($navbar-background-color, 10%);
     padding: 1.5rem 0;
   }
 }
+
+// 类样式实现
+.cm {
+  //粘性定位
+  &-sticky {
+    position: sticky;
+    top: $navbar-height + ($column-gap * 2);
+  }
+}
