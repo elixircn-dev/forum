@@ -23,6 +23,14 @@
                 <img src="/images/elixir-china.png">
               <% end %>
 
+              <%= live_link "首页", 
+                  class: "navbar-item", 
+                  to: Routes.live_path(@conn, CommunityWeb.IndexLive)
+              %>
+              <%= live_link "主题", 
+                  class: "navbar-item", 
+                  to: Routes.live_path(@conn, CommunityWeb.TopicsLive)
+              %>
             <a
               role="button"
               class="navbar-burger burger"
@@ -38,14 +46,6 @@
 
           <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-              <%= live_link "首页", 
-                  class: "navbar-item", 
-                  to: Routes.live_path(@conn, CommunityWeb.IndexLive)
-              %>
-              <%= live_link "主题", 
-                  class: "navbar-item", 
-                  to: Routes.live_path(@conn, CommunityWeb.TopicsLive)
-              %>
               <%= live_link "贡献", 
                   class: "navbar-item", 
                   to: Routes.live_path(@conn, CommunityWeb.ContributeLive)

@@ -42,20 +42,20 @@ class PageHook {
   }
   mounted() {
     if (this.options.select_navbar_item) {
-      let item = document.querySelector(
-        `.navbar-menu .navbar-item[href='${this.options.select_navbar_item}']`
+      let items = document.querySelectorAll(
+        `.navbar-item[href='${this.options.select_navbar_item}']`
       );
-      item.classList.add("is-active");
+      items.forEach(item => item.classList.add("is-active"));
     }
     this.updateTitle();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
   destroyed() {
     if (this.options.select_navbar_item) {
-      let item = document.querySelector(
-        `.navbar-menu .navbar-item[href='${this.options.select_navbar_item}']`
+      let items = document.querySelectorAll(
+        `.navbar-item[href='${this.options.select_navbar_item}']`
       );
-      item.classList.remove("is-active");
+      items.forEach(item => item.classList.remove("is-active"));
     }
     document.title = defaultTitle;
   }
